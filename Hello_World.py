@@ -11,7 +11,7 @@ class Game:
 
 class Dice:
 	
-	def bubblesort:
+	def bubblesort():
 		pass
 	
 	__init__(self):
