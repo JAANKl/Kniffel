@@ -11,7 +11,7 @@ class Game:
 
 class Dice:
 	__init__(self):
-		self.role = []
+		self.roll = []
 		self.numberOf = {}
 		self.sumOf = {}
 		self.sum = 0
