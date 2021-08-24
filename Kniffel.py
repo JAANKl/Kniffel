@@ -1,7 +1,6 @@
-#Author: James King
+#Authors: James King, Sven Krueger
 #24.08.21
-#test Hello World
-print("Hello World")
+#Version 0 test
 
 import random
 
