@@ -10,8 +10,12 @@ class Game:
 		registered = {}
 
 class Dice:
+	
+	def bubblesort:
+		pass
+	
 	__init__(self):
-		self.roll = []
+		self.roll = bubblesort([random.randint(1,7), random.randint(1,7), random.randint(1,7), random.randint(1,7), random.randint(1,7) ])
 		self.numberOf = {}
 		self.sumOf = {}
 		self.sum = 0
