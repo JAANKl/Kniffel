@@ -10,8 +10,16 @@ class Game:
 
 class Dice:
 	
-	def bubblesort():
-		pass
+	def bubblesort(roll):
+	#Einfacher kurzer Sortieralgorhythmus
+    		for j in range(5, 0, -1):
+        		for i in range(j):
+            			if roll[i] > roll[i+1]:
+                		x = roll[i]
+                		roll[i] = roll[i+1]
+                		roll[i+1] = x
+                
+    	return roll
 	
 	__init__(self):
 		self.roll = bubblesort([random.randint(1,7), random.randint(1,7), random.randint(1,7), random.randint(1,7), random.randint(1,7) ])
