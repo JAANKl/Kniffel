@@ -7,9 +7,9 @@ import random
 class Game:
 	__init__(self, numberOfPlayers):
 		self.numberOfPlayers = numberOfPlayers
-		self.registered = []
-		self.playingPlayer = None
-		self.playerRollCounter = 0
+		self.registered = []			#Liste von Tabellen, die die eingetragenen Punktzahlen der jeweiligen Spieler speichern
+		self.playingPlayer = None		#Name des gerade spielenden Spielers
+		self.playerRollCounter = 0		#Gibt an, in welchem seiner 3 möglichen Würfe sich ein Spieler befindet
 	
 	for i in range(self.numberOfPlayers):
 		name = input("Name Spieler" + i + ": ")
@@ -17,6 +17,9 @@ class Game:
 	
 	for roundCounter in range(13):
 		for i in range(self.numberOfPlayers):
+			self.playingPlayer = self.registered[i].name			#Der Spieler, der gerade an der Reihe ist, wird ausgegeben
+			print(self.playingPlayer)
+			
 			rolled = Dice()
 			self.playerRollCounter += 1
 			possibilities = Table(self.registered[i].name)			#Diese Tabelle gibt dem Spieler an, welche Punktzahlen er sich eintragen lassen kann
