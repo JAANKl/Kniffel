@@ -70,3 +70,9 @@ class Dice:
 			return True, 50
 		else:
 			return False, 0
+		
+	def chooseDice(roll, chosenIndices):
+		chosenDice = []
+		for i in chosenIndices:
+			chosenDice.append(roll[i])
+		return chosenDice
