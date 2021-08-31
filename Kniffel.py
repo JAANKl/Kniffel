@@ -17,4 +17,21 @@ class Dice:
 		self.roll = bubblesort([random.randint(1,7), random.randint(1,7), random.randint(1,7), random.randint(1,7), random.randint(1,7) ])
 		self.numberOf = {}
 		self.sum = 0
-		
+	
+	def checkDreierpasch(self):
+		pass
+	
+	def checkViererpasch(self):
+		pass
+	
+	def checkFullHouse(self):
+		pass
+	
+	def checkKleineStrasse(self):
+		pass
+	
+	def checkGrosseStrasse(self):
+		pass
+	
+	def checkKniffel(self):
+		pass
