@@ -41,6 +41,7 @@ class Dice:
 			return False, 0
 	
 	def checkFullHouse(self):
+	#Überprüft, ob ein Dreierpasch und ein anderer Zweierpasch, oder ob ein Kniffel vorhanden ist.
 		if (3 in self.numberOf.values() and 2 in self.numberOf.values()) or 5 in self.numberOf.values():
 			return True, 25
 		else:
