@@ -49,6 +49,7 @@ class Game:
 			
 			
 			
+			
 		
 class Table:
 	__init__(self, name):
@@ -122,12 +123,15 @@ class Dice:
 	def checkChance(self):
 		return True, self.sum
 		
-	def chooseDice(self, chosenIndices):
-	#Mit vom Nutzer übergebenen Indices werden die Würfel, die er auswählen will, in einem neuen Array abgespeichert
-		chosenDice = []
+	def newRoll(self, chosenIndices):
+	#In chosenIndices stehen die Würfel in einer Liste, die der Nutzer nochmal neu werfen will	
 		for i in chosenIndices:
-			chosenDice.append(self.roll[i])
-		return chosenDice
+			self.roll[i] = random.randint(1,7)
+		self.roll = bubblesort(self.roll) #sortiere den neuen Wurf wieder	
+		#Aktualisiere die Attribute numberOf und sum	
+		self.numberOf = {1:self.roll.count(1), 2:self.roll.count(2), 3:self.roll.count(3), 4:self.roll.count(4), 5:self.roll.count(5), 6:self.roll.count(6)}	
+		self.sum = sum(self.roll)
+	
 
 if __name__ == "__main__":
 	N = input("Anzahl der Spieler: ")
