@@ -15,11 +15,11 @@ class Dice:
     		for j in range(5, 0, -1):
         		for i in range(j):
             			if roll[i] > roll[i+1]:
-                		x = roll[i]
-                		roll[i] = roll[i+1]
-                		roll[i+1] = x
+                			x = roll[i]
+                			roll[i] = roll[i+1]
+                			roll[i+1] = x
                 
-    	return roll
+    		return roll
 	
 	__init__(self):
 		self.roll = bubblesort([random.randint(1,7), random.randint(1,7), random.randint(1,7), random.randint(1,7), random.randint(1,7)])
