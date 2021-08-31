@@ -34,8 +34,15 @@ class Game:
 			possibilities.table["Kniffel"] = rolled.checkKniffel()[1]
 			possibilities.table["Chance"] = rolled.checkChance()[1]
 			
-			chosen = input("Was wollen Sie eintragen? ")
-			self.registered[i].table[chosen] = possibilities.table[chosen]
+			continue = input("Wollen Sie weitermachen? y/n: ")
+			if continue == "n":
+				print(possibilities.table)
+				chosen = input("Was wollen Sie eintragen? ")
+				self.registered[i].table[chosen] = possibilities.table[chosen]
+			else:
+				#roll again, choose
+			
+			
 			
 			
 			
