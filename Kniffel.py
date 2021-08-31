@@ -47,7 +47,14 @@ class Dice:
 		pass
 	
 	def checkGrosseStrasse(self):
-		pass
+		for i in range(1,7):
+			if self.numberOf[i] >= 2:      #für eine große Straße benötigt man 5 verschiedene Zahlen, d.h. es darf keine Zahl mehrmals vorkommen
+				return False
+		
+		if self.numberOf[1] == self.numberOf[6]:  #gibt es sowohl eine 1 als auch eine 6, so kann ebenfalls keine große Straße vorliegen
+			return False
+		else:
+			return True
 	
 	def checkKniffel(self):
 		if 5 in self.numberOf.values():
