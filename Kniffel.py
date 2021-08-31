@@ -16,6 +16,7 @@ class Game:
 		self.registered[i] = Table(name)
 	
 	for j in range(13):
+		self.roundCounter = j+1
 		for i in range(self.numberOfPlayers):
 			rolled = Dice()
 			possibilities = Table(self.registered[i].name)
@@ -112,11 +113,11 @@ class Dice:
 	def checkChance(self):
 		return True, self.sum
 		
-	def chooseDice(roll, chosenIndices):
+	def chooseDice(self, chosenIndices):
 	#Mit vom Nutzer übergebenen Indices werden die Würfel, die er auswählen will, in einem neuen Array abgespeichert
 		chosenDice = []
 		for i in chosenIndices:
-			chosenDice.append(roll[i])
+			chosenDice.append(self.roll[i])
 		return chosenDice
 
 if __name__ == "__main__":
