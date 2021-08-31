@@ -23,8 +23,9 @@ class Dice:
 	
 	__init__(self):
 		self.roll = bubblesort([random.randint(1,7), random.randint(1,7), random.randint(1,7), random.randint(1,7), random.randint(1,7)])
-		self.numberOf = {}
-		self.sum = 0
+		self.numberOf = {1:self.roll.count(1),2:self.roll.count(2),3:self.roll.count(3),4:self.roll.count(4),5:self.roll.count(5),6:self.roll.count(6)}
+				#Anzahl 1er, 2er, 3er, 4er, 5er, 6er des Wurfes
+		self.sum = sum(self.roll)
 	
 	def checkDreierpasch(self):
 	#Überprüft, ob ein Dreier-, Viererpasch oder Kniffel vorhanden ist.
