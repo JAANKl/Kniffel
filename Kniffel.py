@@ -49,7 +49,11 @@ class Dice:
 			return False, 0
 	
 	def checkKleineStrasse(self):
-		pass
+	#Überprüft alle Möglichkeiten einer kleinen Straße (also [1,2,3,4,x], [2,3,4,5,x], [3,4,5,6,x])
+		if (1 in self.numberOf.values() and 2 in self.numberOf.values() and 3 in self.numberOf.values() and 4 in self.numberOf.values()) or (2 in self.numberOf.values() and 3 in self.numberOf.values() and 4 in self.numberOf.values() and 5 in self.numberOf.values()) or (3 in self.numberOf.values() and 4 in self.numberOf.values() and 5 in self.numberOf.values() and 6 in self.numberOf.values()):
+			return True, 30
+		else:
+			return False, 0
 	
 	def checkGrosseStrasse(self):
 		for i in range(1,7):
