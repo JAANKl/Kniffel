@@ -22,6 +22,19 @@ class Game:
 			
 			rolled = Dice()
 			self.playerRollCounter += 1
+			print("Ihr Wurf:", rolled.roll)  #Zeige dem Benutzer seinen Wurf
+			
+			
+			while self.playerRollCounter < 3:
+				continue_ = input("Wollen Sie weitermachen? y/n: ")
+				if continue_ == "n":
+					break
+				else:
+					chosenIndices = input("Welche Würfel wollen Sie nochmal werfen? ")
+					rolled.newRoll(chosenIndices)                   #nochmal würfeln
+					self.playerRollCounter += 1
+					print("Ihr Wurf:", rolled.roll)  #Zeige dem Benutzer seinen Wurf
+
 			possibilities = Table(self.registered[i].name)			#Diese Tabelle gibt dem Spieler an, welche Punktzahlen er sich eintragen lassen kann
 			possibilities.table["Einser"] = rolled.numberOf[1] * 1
 			possibilities.table["Zweier"] = rolled.numberOf[2] * 2
@@ -37,14 +50,11 @@ class Game:
 			possibilities.table["GrosseStrasse"] = rolled.checkGrosseStrasse()[1]
 			possibilities.table["Kniffel"] = rolled.checkKniffel()[1]
 			possibilities.table["Chance"] = rolled.checkChance()[1]
+			print(possibilities.table)
+			chosen = input("Was wollen Sie eintragen? ")
+			self.registered[i].table[chosen] = possibilities.table[chosen]
 			
-			continue = input("Wollen Sie weitermachen? y/n: ")
-			if continue == "n" or self.playerRollCounter >= 3:
-				print(possibilities.table)
-				chosen = input("Was wollen Sie eintragen? ")
-				self.registered[i].table[chosen] = possibilities.table[chosen]
-			else:
-				#roll again, choose
+				
 			
 			
 			
