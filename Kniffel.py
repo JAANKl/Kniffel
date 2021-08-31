@@ -9,7 +9,8 @@ class Game:
 		self.numberOfPlayers = numberOfPlayers
 		self.registered = []
 		self.roundCounter = 0
-		self.playerTurn = 0
+		self.playingPlayer = None
+		self.playerRollCounter = 0
 	
 	for i in range(self.numberOfPlayers):
 		name = input("Name Spieler" + i + ": ")
@@ -18,6 +19,7 @@ class Game:
 	for j in range(13):
 		for i in range(self.numberOfPlayers):
 			rolled = Dice()
+			self.playerRollCounter += 1
 			possibilities = Table(self.registered[i].name)
 			possibilities.table["Einser"] = rolled.numberOf[1] * 1
 			possibilities.table["Zweier"] = rolled.numberOf[2] * 2
@@ -35,7 +37,7 @@ class Game:
 			possibilities.table["Chance"] = rolled.checkChance()[1]
 			
 			continue = input("Wollen Sie weitermachen? y/n: ")
-			if continue == "n":
+			if continue == "n" or self.playerRollCounter >= 3:
 				print(possibilities.table)
 				chosen = input("Was wollen Sie eintragen? ")
 				self.registered[i].table[chosen] = possibilities.table[chosen]
