@@ -5,9 +5,16 @@
 import random
 
 class Game:
-	__init__(self):
-		registered = {}
-
+	__init__(self, numberOfPlayers):
+		self.numberOfPlayers = numberOfPlayers
+		self.registered = []
+		
+class Table:
+	__init__(self, name):
+		self.name = name
+		self.table = {"Einser": None, "Zweier": None, "Dreier": None, "Vierer": None, "Fünfer": None, "Sechser": None, "Bonus": None,
+			      "Dreierpasch": None, "Viererpasch": None, "FullHouse": None, "KleineStrasse": None, "GrosseStrasse": None, "Kniffel": None, "Chance": None}
+	
 class Dice:
 	
 	def bubblesort(roll):
