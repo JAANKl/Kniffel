@@ -34,4 +34,7 @@ class Dice:
 		pass
 	
 	def checkKniffel(self):
-		pass
+		if 5 in self.numberOf.values():
+			return True
+		else:
+			return False
