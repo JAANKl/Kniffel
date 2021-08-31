@@ -34,6 +34,11 @@ class Game:
 			possibilities.table["Kniffel"] = rolled.checkKniffel()[1]
 			possibilities.table["Chance"] = rolled.checkChance()[1]
 			
+			chosen = input("Was wollen Sie eintragen? ")
+			self.registered[i].table[chosen] = possibilities.table[chosen]
+			
+			
+			
 		
 class Table:
 	__init__(self, name):
