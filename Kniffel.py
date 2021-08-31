@@ -17,12 +17,16 @@ class Game:
 	
 	for j in range(13):
 		for i in self.numberOfPlayers:
-			roll = Dice()
+			rolled = Dice()
 			possibilities = Table(self.registered[i].name)
-			possibilities.table["Einser"] = roll.numberOf[1] * 1
+			possibilities.table["Einser"] = rolled.numberOf[1] * 1
+			possibilities.table["Zweier"] = rolled.numberOf[2] * 2
+			possibilities.table["Dreier"] = rolled.numberOf[3] * 3
+			possibilities.table["Vierer"] = rolled.numberOf[4] * 4
+			possibilities.table["Fünfer"] = rolled.numberOf[5] * 5
+			possibilities.table["Sechser"] = rolled.numberOf[6] * 6
 			
-			
-			possibilities.table["Dreierpasch"] = roll.checkDreierpasch()[1]
+			possibilities.table["Dreierpasch"] = rolled.checkDreierpasch()[1]
 			
 		
 class Table:
