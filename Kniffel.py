@@ -10,19 +10,33 @@ class Game:
 
 class Dice:
 	
-	def bubblesort():
-		pass
+	def bubblesort(roll):
+	#Einfacher kurzer Sortieralgorhythmus
+    		for j in range(5, 0, -1):
+        		for i in range(j):
+            			if roll[i] > roll[i+1]:
+                		x = roll[i]
+                		roll[i] = roll[i+1]
+                		roll[i+1] = x
+                
+    	return roll
 	
 	__init__(self):
-		self.roll = bubblesort([random.randint(1,7), random.randint(1,7), random.randint(1,7), random.randint(1,7), random.randint(1,7) ])
+		self.roll = bubblesort([random.randint(1,7), random.randint(1,7), random.randint(1,7), random.randint(1,7), random.randint(1,7)])
 		self.numberOf = {}
 		self.sum = 0
 	
 	def checkDreierpasch(self):
-		pass
+		if 3 in self.numberOf.values() or 4 in self.numberOf.values() or 5 in self.numberOf.values():
+			return True, self.sum
+		else:
+			return False, 0
 	
 	def checkViererpasch(self):
-		pass
+		if 4 in self.numberOf.values() or 5 in self.numberOf.values():
+			return True, self.sum
+		else:
+			return False, 0
 	
 	def checkFullHouse(self):
 		pass
@@ -31,15 +45,7 @@ class Dice:
 		pass
 	
 	def checkGrosseStrasse(self):
-		for i in range(1,7):
-			if self.numberOf[i] >= 2:      #für eine große Straße benötigt man 5 verschiedene Zahlen, d.h. es darf keine Zahl mehrmals vorkommen
-				return False
-		
-		if self.numberOf[1] == self.numberOf[6]:  #gibt es sowohl eine 1 als auch eine 6, so kann ebenfalls keine große Straße vorliegen
-			return False
-		else:
-			return True
-		
+		pass
 	
 	def checkKniffel(self):
 		if 5 in self.numberOf.values():
