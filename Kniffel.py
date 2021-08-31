@@ -105,6 +105,6 @@ class Dice:
 			chosenDice.append(roll[i])
 		return chosenDice
 
-	if __name__ == "__main__":
-		N = input("Anzahl der Spieler: ")
-		kniffel = Game(N)
+if __name__ == "__main__":
+	N = input("Anzahl der Spieler: ")
+	kniffel = Game(N)
