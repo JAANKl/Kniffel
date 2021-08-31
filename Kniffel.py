@@ -50,7 +50,7 @@ class Dice:
 	
 	def checkKleineStrasse(self):
 	#Überprüft alle Möglichkeiten einer kleinen Straße (also [1,2,3,4,x], [2,3,4,5,x], [3,4,5,6,x])
-		if (1 in self.numberOf.values() and 2 in self.numberOf.values() and 3 in self.numberOf.values() and 4 in self.numberOf.values()) or (2 in self.numberOf.values() and 3 in self.numberOf.values() and 4 in self.numberOf.values() and 5 in self.numberOf.values()) or (3 in self.numberOf.values() and 4 in self.numberOf.values() and 5 in self.numberOf.values() and 6 in self.numberOf.values()):
+		if (1 in self.roll and 2 in self.roll and 3 in self.roll and 4 in self.roll) or (2 in self.roll and 3 in self.roll and 4 in self.roll and 5 in self.roll) or (3 in self.roll and 4 in self.roll and 5 in self.roll and 6 in self.roll):
 			return True, 30
 		else:
 			return False, 0
