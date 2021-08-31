@@ -8,6 +8,22 @@ class Game:
 	__init__(self, numberOfPlayers):
 		self.numberOfPlayers = numberOfPlayers
 		self.registered = []
+		self.roundCounter = 0
+		self.playerTurn = 0
+	
+	for i in self.numberOfPlayers:
+		name = input("Name Spieler " + i + ":")
+		self.registered[i] = Table(name)
+	
+	for j in range(13):
+		for i in self.numberOfPlayers:
+			roll = Dice()
+			possibilities = Table(self.registered[i].name)
+			possibilities.table["Einser"] = roll.numberOf[1] * 1
+			
+			
+			possibilities.table["Dreierpasch"] = roll.checkDreierpasch()[1]
+			
 		
 class Table:
 	__init__(self, name):
