@@ -8,19 +8,20 @@ class Game:
 	__init__(self, numberOfPlayers):
 		self.numberOfPlayers = numberOfPlayers
 		self.registered = []
-		self.roundCounter = 0
 		self.playingPlayer = None
 		self.playerRollCounter = 0
 	
+	#Hier werden die Spielernamen eingetragen und ihre Punktetabellen angelegt
 	for i in range(self.numberOfPlayers):
 		name = input("Name Spieler" + i + ": ")
 		self.registered[i] = Table(name)
 	
-	for j in range(13):
+	#Hier findet das Spiel statt
+	for roundCounter in range(13):
 		for i in range(self.numberOfPlayers):
 			rolled = Dice()
 			self.playerRollCounter += 1
-			possibilities = Table(self.registered[i].name)
+			possibilities = Table(self.registered[i].name)		#diese Tabelle zeigt dem Spieler an, welche Punktzahlen er eintragen lassen kann
 			possibilities.table["Einser"] = rolled.numberOf[1] * 1
 			possibilities.table["Zweier"] = rolled.numberOf[2] * 2
 			possibilities.table["Dreier"] = rolled.numberOf[3] * 3
