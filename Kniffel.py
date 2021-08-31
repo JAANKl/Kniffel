@@ -27,12 +27,14 @@ class Dice:
 		self.sum = 0
 	
 	def checkDreierpasch(self):
+	#Überprüft, ob ein Dreier-, Viererpasch oder Kniffel vorhanden ist.
 		if 3 in self.numberOf.values() or 4 in self.numberOf.values() or 5 in self.numberOf.values():
 			return True, self.sum
 		else:
 			return False, 0
 	
 	def checkViererpasch(self):
+	#Überprüft, ob ein Viererpasch oder Kniffel vorhanden ist.
 		if 4 in self.numberOf.values() or 5 in self.numberOf.values():
 			return True, self.sum
 		else:
