@@ -30,7 +30,9 @@ class Game:
 				if continue_ == "n":
 					break
 				else:
-					chosenIndices = input("Welche Würfel wollen Sie nochmal werfen? ")
+					chosenIndices = list(input("Welche Würfel wollen Sie nochmal werfen? (Indizes ohne Leerzeichen eingeben) "))
+					for k in range(len(chosenIndices)):
+						chosenIndices[k] = int(chosenIndoces[k])#Die strings in ints umwandeln 
 					rolled.newRoll(chosenIndices)                   #nochmal würfeln
 					self.playerRollCounter += 1
 					print("Ihr Wurf:", rolled.roll)  #Zeige dem Benutzer seinen Wurf
