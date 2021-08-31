@@ -16,6 +16,5 @@ class Dice:
 	__init__(self):
 		self.roll = bubblesort([random.randint(1,7), random.randint(1,7), random.randint(1,7), random.randint(1,7), random.randint(1,7) ])
 		self.numberOf = {}
-		self.sumOf = {}
 		self.sum = 0
 		
