@@ -11,7 +11,7 @@ class Game:
 class Dice:
 	
 	def bubblesort(roll):
-	#Einfacher kurzer Sortieralgorhythmus
+	#Einfacher kurzer Sortieralgorithmus
     		for j in range(5, 0, -1):
         		for i in range(j):
             			if roll[i] > roll[i+1]:
@@ -23,7 +23,7 @@ class Dice:
 	
 	__init__(self):
 		self.roll = bubblesort([random.randint(1,7), random.randint(1,7), random.randint(1,7), random.randint(1,7), random.randint(1,7)])
-		self.numberOf = {1:self.roll.count(1),2:self.roll.count(2),3:self.roll.count(3),4:self.roll.count(4),5:self.roll.count(5),6:self.roll.count(6)}
+		self.numberOf = {1:self.roll.count(1), 2:self.roll.count(2), 3:self.roll.count(3), 4:self.roll.count(4), 5:self.roll.count(5), 6:self.roll.count(6)}
 				#Anzahl 1er, 2er, 3er, 4er, 5er, 6er des Wurfes
 		self.sum = sum(self.roll)
 	
