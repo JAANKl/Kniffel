@@ -11,12 +11,12 @@ class Game:
 		self.roundCounter = 0
 		self.playerTurn = 0
 	
-	for i in self.numberOfPlayers:
-		name = input("Name Spieler " + i + ":")
+	for i in range(self.numberOfPlayers):
+		name = input("Name Spieler" + i + ": ")
 		self.registered[i] = Table(name)
 	
 	for j in range(13):
-		for i in self.numberOfPlayers:
+		for i in range(self.numberOfPlayers):
 			rolled = Dice()
 			possibilities = Table(self.registered[i].name)
 			possibilities.table["Einser"] = rolled.numberOf[1] * 1
