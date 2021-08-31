@@ -1,6 +1,6 @@
 #Authors: James King, Sven Krueger
 #24.08.21
-#Version 1 
+#Version 1.0
 
 import random
 
