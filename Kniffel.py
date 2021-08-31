@@ -32,7 +32,7 @@ class Game:
 				else:
 					chosenIndices = list(input("Welche Würfel wollen Sie nochmal werfen? (Indizes ohne Leerzeichen eingeben) "))
 					for k in range(len(chosenIndices)):
-						chosenIndices[k] = int(chosenIndoces[k])#Die strings in ints umwandeln 
+						chosenIndices[k] = int(chosenIndices[k])#Die strings in ints umwandeln 
 					rolled.newRoll(chosenIndices)                   #nochmal würfeln
 					self.playerRollCounter += 1
 					print("Ihr Wurf:", rolled.roll)  #Zeige dem Benutzer seinen Wurf
@@ -147,5 +147,5 @@ class Dice:
 	
 
 if __name__ == "__main__":
-	N = input("Anzahl der Spieler: ")
+	N = int(input("Anzahl der Spieler: "))
 	kniffel = Game(N)
