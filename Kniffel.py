@@ -1,6 +1,6 @@
 #Authors: James King, Sven Krueger
 #24.08.21
-#Version 0 test
+#Version 1 
 
 import random
 
@@ -72,6 +72,7 @@ class Dice:
 			return False, 0
 		
 	def chooseDice(roll, chosenIndices):
+	#Mit vom Nutzer übergebenen Indices werden die Würfel, die er auswählen will, in einem neuen Array abgespeichert
 		chosenDice = []
 		for i in chosenIndices:
 			chosenDice.append(roll[i])
