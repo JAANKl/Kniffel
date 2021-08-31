@@ -27,6 +27,12 @@ class Game:
 			possibilities.table["Sechser"] = rolled.numberOf[6] * 6
 			
 			possibilities.table["Dreierpasch"] = rolled.checkDreierpasch()[1]
+			possibilities.table["Viererpasch"] = rolled.checkViererpasch()[1]
+			possibilities.table["FullHouse"] = rolled.checkFullHouse()[1]
+			possibilities.table["KleineStrasse"] = rolled.checkKleineStrasse()[1]
+			possibilities.table["GrosseStrasse"] = rolled.checkGrosseStrasse()[1]
+			possibilities.table["Kniffel"] = rolled.checkKniffel()[1]
+			possibilities.table["Chance"] = rolled.checkChance()[1]
 			
 		
 class Table:
@@ -97,6 +103,9 @@ class Dice:
 			return True, 50
 		else:
 			return False, 0
+		
+	def checkChance(self):
+		return True, self.sum
 		
 	def chooseDice(roll, chosenIndices):
 	#Mit vom Nutzer übergebenen Indices werden die Würfel, die er auswählen will, in einem neuen Array abgespeichert
