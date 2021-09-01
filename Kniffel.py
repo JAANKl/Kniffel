@@ -84,7 +84,7 @@ class Dice:
     		return roll
 	
 	def __init__(self):
-		self.roll = bubblesort([random.randint(1,7), random.randint(1,7), random.randint(1,7), random.randint(1,7), random.randint(1,7)])
+		self.roll = self.bubblesort([random.randint(1,7), random.randint(1,7), random.randint(1,7), random.randint(1,7), random.randint(1,7)])
 		self.numberOf = {1:self.roll.count(1), 2:self.roll.count(2), 3:self.roll.count(3), 4:self.roll.count(4), 5:self.roll.count(5), 6:self.roll.count(6)}
 				#Anzahl 1er, 2er, 3er, 4er, 5er, 6er des Wurfes
 		self.sum = sum(self.roll)
@@ -140,7 +140,7 @@ class Dice:
 	#In chosenIndices stehen die Würfel in einer Liste, die der Nutzer nochmal neu werfen will	
 		for i in chosenIndices:
 			self.roll[i] = random.randint(1,7)
-		self.roll = bubblesort(self.roll) #sortiere den neuen Wurf wieder	
+		self.roll = self.bubblesort(self.roll) #sortiere den neuen Wurf wieder	
 		#Aktualisiere die Attribute numberOf und sum	
 		self.numberOf = {1:self.roll.count(1), 2:self.roll.count(2), 3:self.roll.count(3), 4:self.roll.count(4), 5:self.roll.count(5), 6:self.roll.count(6)}	
 		self.sum = sum(self.roll)
