@@ -11,50 +11,51 @@ class Game:
 		self.playingPlayer = None		#Name des gerade spielenden Spielers
 		self.playerRollCounter = 0		#Gibt an, in welchem seiner 3 möglichen Würfe sich ein Spieler befindet
 	
-	for i in range(self.numberOfPlayers):
-		name = input("Name Spieler" + i + ": ")
-		self.registered[i] = Table(name)
-	
-	for roundCounter in range(13):
+	def play(self):
 		for i in range(self.numberOfPlayers):
-			self.playingPlayer = self.registered[i].name			#Der Spieler, der gerade an der Reihe ist, wird ausgegeben
-			print(self.playingPlayer)
+			name = input("Name Spieler" + i + ": ")
+			self.registered[i] = Table(name)
+	
+		for roundCounter in range(13):
+			for i in range(self.numberOfPlayers):
+				self.playingPlayer = self.registered[i].name			#Der Spieler, der gerade an der Reihe ist, wird ausgegeben
+				print(self.playingPlayer)
 			
-			rolled = Dice()
-			self.playerRollCounter += 1
-			print("Ihr Wurf:", rolled.roll)  #Zeige dem Benutzer seinen Wurf
+				rolled = Dice()
+				self.playerRollCounter += 1
+				print("Ihr Wurf:", rolled.roll)  #Zeige dem Benutzer seinen Wurf
 			
 			
-			while self.playerRollCounter < 3:
-				continue_ = input("Wollen Sie weitermachen? y/n: ")
-				if continue_ == "n":
-					break
-				else:
-					chosenIndices = list(input("Welche Würfel wollen Sie nochmal werfen? (Indizes ohne Leerzeichen eingeben) "))
-					for k in range(len(chosenIndices)):
-						chosenIndices[k] = int(chosenIndices[k])#Die strings in ints umwandeln 
-					rolled.newRoll(chosenIndices)                   #nochmal würfeln
-					self.playerRollCounter += 1
-					print("Ihr Wurf:", rolled.roll)  #Zeige dem Benutzer seinen Wurf
+				while self.playerRollCounter < 3:
+					continue_ = input("Wollen Sie weitermachen? y/n: ")
+					if continue_ == "n":
+						break
+					else:
+						chosenIndices = list(input("Welche Würfel wollen Sie nochmal werfen? (Indizes ohne Leerzeichen eingeben) "))
+						for k in range(len(chosenIndices)):
+							chosenIndices[k] = int(chosenIndices[k])#Die strings in ints umwandeln 
+						rolled.newRoll(chosenIndices)                   #nochmal würfeln
+						self.playerRollCounter += 1
+						print("Ihr Wurf:", rolled.roll)  #Zeige dem Benutzer seinen Wurf
 
-			possibilities = Table(self.registered[i].name)			#Diese Tabelle gibt dem Spieler an, welche Punktzahlen er sich eintragen lassen kann
-			possibilities.table["Einser"] = rolled.numberOf[1] * 1
-			possibilities.table["Zweier"] = rolled.numberOf[2] * 2
-			possibilities.table["Dreier"] = rolled.numberOf[3] * 3
-			possibilities.table["Vierer"] = rolled.numberOf[4] * 4
-			possibilities.table["Fünfer"] = rolled.numberOf[5] * 5
-			possibilities.table["Sechser"] = rolled.numberOf[6] * 6
+				possibilities = Table(self.registered[i].name)			#Diese Tabelle gibt dem Spieler an, welche Punktzahlen er sich eintragen lassen kann
+				possibilities.table["Einser"] = rolled.numberOf[1] * 1
+				possibilities.table["Zweier"] = rolled.numberOf[2] * 2
+				possibilities.table["Dreier"] = rolled.numberOf[3] * 3
+				possibilities.table["Vierer"] = rolled.numberOf[4] * 4
+				possibilities.table["Fünfer"] = rolled.numberOf[5] * 5
+				possibilities.table["Sechser"] = rolled.numberOf[6] * 6
 			
-			possibilities.table["Dreierpasch"] = rolled.checkDreierpasch()[1]
-			possibilities.table["Viererpasch"] = rolled.checkViererpasch()[1]
-			possibilities.table["FullHouse"] = rolled.checkFullHouse()[1]
-			possibilities.table["KleineStrasse"] = rolled.checkKleineStrasse()[1]
-			possibilities.table["GrosseStrasse"] = rolled.checkGrosseStrasse()[1]
-			possibilities.table["Kniffel"] = rolled.checkKniffel()[1]
-			possibilities.table["Chance"] = rolled.checkChance()[1]
-			print(possibilities.table)
-			chosen = input("Was wollen Sie eintragen? ")
-			self.registered[i].table[chosen] = possibilities.table[chosen]
+				possibilities.table["Dreierpasch"] = rolled.checkDreierpasch()[1]
+				possibilities.table["Viererpasch"] = rolled.checkViererpasch()[1]
+				possibilities.table["FullHouse"] = rolled.checkFullHouse()[1]
+				possibilities.table["KleineStrasse"] = rolled.checkKleineStrasse()[1]
+				possibilities.table["GrosseStrasse"] = rolled.checkGrosseStrasse()[1]
+				possibilities.table["Kniffel"] = rolled.checkKniffel()[1]
+				possibilities.table["Chance"] = rolled.checkChance()[1]
+				print(possibilities.table)
+				chosen = input("Was wollen Sie eintragen? ")
+				self.registered[i].table[chosen] = possibilities.table[chosen]
 			
 				
 			
@@ -149,3 +150,4 @@ class Dice:
 if __name__ == "__main__":
 	N = int(input("Anzahl der Spieler: "))
 	kniffel = Game(N)
+	kniffel.play()
