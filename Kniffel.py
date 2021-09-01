@@ -5,7 +5,7 @@
 import random
 
 class Game:
-	__init__(self, numberOfPlayers):
+	def __init__(self, numberOfPlayers):
 		self.numberOfPlayers = numberOfPlayers
 		self.registered = []			#Liste von Tabellen, die die eingetragenen Punktzahlen der jeweiligen Spieler speichern
 		self.playingPlayer = None		#Name des gerade spielenden Spielers
@@ -65,7 +65,7 @@ class Game:
 			
 		
 class Table:
-	__init__(self, name):
+	def __init__(self, name):
 		self.name = name
 		self.table = {"Einser": None, "Zweier": None, "Dreier": None, "Vierer": None, "Fünfer": None, "Sechser": None, "Bonus": None,
 			      "Dreierpasch": None, "Viererpasch": None, "FullHouse": None, "KleineStrasse": None, "GrosseStrasse": None, "Kniffel": None, "Chance": None}
@@ -83,7 +83,7 @@ class Dice:
                 
     		return roll
 	
-	__init__(self):
+	def __init__(self):
 		self.roll = bubblesort([random.randint(1,7), random.randint(1,7), random.randint(1,7), random.randint(1,7), random.randint(1,7)])
 		self.numberOf = {1:self.roll.count(1), 2:self.roll.count(2), 3:self.roll.count(3), 4:self.roll.count(4), 5:self.roll.count(5), 6:self.roll.count(6)}
 				#Anzahl 1er, 2er, 3er, 4er, 5er, 6er des Wurfes
