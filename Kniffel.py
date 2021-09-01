@@ -53,10 +53,13 @@ class Game:
 				possibilities.table["GrosseStrasse"] = rolled.checkGrosseStrasse()[1]
 				possibilities.table["Kniffel"] = rolled.checkKniffel()[1]
 				possibilities.table["Chance"] = rolled.checkChance()[1]
+				
+				#Hier werden alle Möglichkeiten ausgegeben, die der Spieler hat, etwas einzutragen.
 				for figur in self.registered[i].table:
 					if self.registered[i].table[figur] is None:
 						print(figur, possibilities.table[figur])
 
+				#Abfrage an den Spieler, was er eintragen will.
 				chosen = input("Was wollen Sie eintragen? ")
 				while chosen not in self.registered[i].table:
 					chosen = input("Falsche Eingabe. Was wollen Sie eintragen? ")
@@ -69,7 +72,7 @@ class Game:
 				
 				self.playerRollCounter = 0
 			for tabelle in self.registered:
-				print(tabelle.name, tabelle.table)
+				print(tabelle.name, tabelle.table)		#Ausgabe aller Punktetabellen nach jeder fertigen Runde.
 			
 				
 			
