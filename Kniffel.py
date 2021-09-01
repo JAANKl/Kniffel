@@ -13,7 +13,7 @@ class Game:
 	
 	def play(self):
 		for i in range(self.numberOfPlayers):
-			name = input("Name Spieler" + i + ": ")
+			name = input(f"Name Spieler {i}: ")
 			self.registered[i] = Table(name)
 	
 		for roundCounter in range(13):
