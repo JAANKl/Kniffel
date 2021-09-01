@@ -58,7 +58,15 @@ class Game:
 						print(figur, possibilities.table[figur])
 
 				chosen = input("Was wollen Sie eintragen? ")
+				while chosen not in self.registered[i].table:
+					chosen = input("Falsche Eingabe. Was wollen Sie eintragen? ")
 				self.registered[i].table[chosen] = possibilities.table[chosen]
+				
+				#Bonusabfrage
+				if self.registered[i].checkBonus():
+					print("Sie haben den Bonus erreicht")
+					self.registered[i].table["Bonus"] = 35
+				
 				self.playerRollCounter = 0
 			for tabelle in self.registered:
 				print(tabelle.name, tabelle.table)
@@ -74,9 +82,15 @@ class Game:
 class Table:
 	def __init__(self, name):
 		self.name = name
-		self.table = {"Einser": None, "Zweier": None, "Dreier": None, "Vierer": None, "Fünfer": None, "Sechser": None, "Bonus": None,
+		self.table = {"Einser": None, "Zweier": None, "Dreier": None, "Vierer": None, "Fünfer": None, "Sechser": None, "Bonus": 0,
 			      "Dreierpasch": None, "Viererpasch": None, "FullHouse": None, "KleineStrasse": None, "GrosseStrasse": None, "Kniffel": None, "Chance": None}
-	
+
+	def checkBonus(self):
+		sum = 0
+		for key in ["Einser", "Zweier", "Dreier", "Vierer", "Fünfer", "Sechser"]:
+			sum += (int(0 if self.table[key] is None else self.table[key]))
+		return (sum >= 63)
+
 class Dice:
 	
 	def bubblesort(roll):
