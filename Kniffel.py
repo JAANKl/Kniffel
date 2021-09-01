@@ -7,7 +7,7 @@ import random
 class Game:
 	def __init__(self, numberOfPlayers):
 		self.numberOfPlayers = numberOfPlayers
-		self.registered = self.numberofPlayers * [None]			#Liste von Tabellen, die die eingetragenen Punktzahlen der jeweiligen Spieler speichern
+		self.registered = self.numberOfPlayers * [None]			#Liste von Tabellen, die die eingetragenen Punktzahlen der jeweiligen Spieler speichern
 		self.playingPlayer = None		#Name des gerade spielenden Spielers
 		self.playerRollCounter = 0		#Gibt an, in welchem seiner 3 möglichen Würfe sich ein Spieler befindet
 	
