@@ -53,9 +53,15 @@ class Game:
 				possibilities.table["GrosseStrasse"] = rolled.checkGrosseStrasse()[1]
 				possibilities.table["Kniffel"] = rolled.checkKniffel()[1]
 				possibilities.table["Chance"] = rolled.checkChance()[1]
-				print(possibilities.table)
+				for figur in self.registered[i].table:
+					if self.registered[i].table[figur] is None:
+						print(figur, possibilities.table[figur])
+
 				chosen = input("Was wollen Sie eintragen? ")
 				self.registered[i].table[chosen] = possibilities.table[chosen]
+				self.playerRollCounter = 0
+			for tabelle in self.registered:
+				print(tabelle.name, tabelle.table)
 			
 				
 			
@@ -74,18 +80,18 @@ class Table:
 class Dice:
 	
 	def bubblesort(roll):
-	#Einfacher kurzer Sortieralgorithmus
-    		for j in range(5, 0, -1):
-        		for i in range(j):
-            			if roll[i] > roll[i+1]:
-                			x = roll[i]
-                			roll[i] = roll[i+1]
-                			roll[i+1] = x
-                
-    		return roll
+		#Einfacher kurzer Sortieralgorithmus
+		for j in range(5, 0, -1):
+			for i in range(j):
+				if roll[i] > roll[i+1]:
+					x = roll[i]
+					roll[i] = roll[i+1]
+					roll[i+1] = x
+		return roll
 	
 	def __init__(self):
-		self.roll = self.bubblesort([random.randint(1,7), random.randint(1,7), random.randint(1,7), random.randint(1,7), random.randint(1,7)])
+		#self.roll = self.bubblesort([random.randint(1,6), random.randint(1,6), random.randint(1,6), random.randint(1,6), random.randint(1,6)])
+		self.roll = [random.randint(1,6), random.randint(1,6), random.randint(1,6), random.randint(1,6), random.randint(1,6)]
 		self.numberOf = {1:self.roll.count(1), 2:self.roll.count(2), 3:self.roll.count(3), 4:self.roll.count(4), 5:self.roll.count(5), 6:self.roll.count(6)}
 				#Anzahl 1er, 2er, 3er, 4er, 5er, 6er des Wurfes
 		self.sum = sum(self.roll)
@@ -140,8 +146,8 @@ class Dice:
 	def newRoll(self, chosenIndices):
 	#In chosenIndices stehen die Würfel in einer Liste, die der Nutzer nochmal neu werfen will	
 		for i in chosenIndices:
-			self.roll[i] = random.randint(1,7)
-		self.roll = self.bubblesort(self.roll) #sortiere den neuen Wurf wieder	
+			self.roll[i] = random.randint(1,6)
+		#self.roll = self.bubblesort(self.roll) #sortiere den neuen Wurf wieder	
 		#Aktualisiere die Attribute numberOf und sum	
 		self.numberOf = {1:self.roll.count(1), 2:self.roll.count(2), 3:self.roll.count(3), 4:self.roll.count(4), 5:self.roll.count(5), 6:self.roll.count(6)}	
 		self.sum = sum(self.roll)
