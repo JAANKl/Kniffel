@@ -4,6 +4,14 @@
 
 import random
 
+class Player:
+	def __init__(self, name):
+		self.name = name
+		self.registered = Table(name)
+		self.rollCounter = 0
+		self.bonusAchieved = False
+		self.sumOfAllPoints = 0
+
 class Game:
 	def __init__(self, numberOfPlayers):
 		self.numberOfPlayers = numberOfPlayers
@@ -11,6 +19,7 @@ class Game:
 		self.playingPlayer = None		#Name des gerade spielenden Spielers
 		self.playerRollCounter = 0		#Gibt an, in welchem seiner 3 möglichen Würfe sich ein Spieler befindet
 		self.bonusAchieved = self.numberOfPlayers * [False]
+		self.sumOfAllPoints = self.numberOfPlayers * [0]		#Vielleicht zu dict ändern oder neue Klasse Player?
 	
 	def play(self):
 		for i in range(self.numberOfPlayers):
@@ -65,6 +74,7 @@ class Game:
 				while chosen not in self.registered[i].table:
 					chosen = input("Falsche Eingabe. Was wollen Sie eintragen? ")
 				self.registered[i].table[chosen] = possibilities.table[chosen]
+				self.sumOfAllPoints[i] += possibilities.table[chosen]
 				
 				#Bonusabfrage
 				if self.registered[i].checkBonus() and not self.bonusAchieved[i]:
@@ -75,6 +85,7 @@ class Game:
 				self.playerRollCounter = 0
 			for tabelle in self.registered:
 				print(tabelle.name, tabelle.table)		#Ausgabe aller Punktetabellen nach jeder fertigen Runde.
+		print(self.sumOfAllPoints)
 			
 				
 			
