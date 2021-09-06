@@ -7,28 +7,31 @@ import random
 class Player:
 	def __init__(self, name):
 		self.name = name
-		self.registered = Table(name)
-		self.rollCounter = 0
+		self.registered = Table()
+		#self.rollCounter = 0
 		self.bonusAchieved = False
 		self.sumOfAllPoints = 0
 
 class Game:
 	def __init__(self, numberOfPlayers):
 		self.numberOfPlayers = numberOfPlayers
-		self.registered = self.numberOfPlayers * [None]			#Liste von Tabellen, die die eingetragenen Punktzahlen der jeweiligen Spieler speichern
+		#self.registered = self.numberOfPlayers * [None]			#Liste von Tabellen, die die eingetragenen Punktzahlen der jeweiligen Spieler speichern
+		self.players = self.numberOfPlayers * [None]
 		self.playingPlayer = None		#Name des gerade spielenden Spielers
 		self.playerRollCounter = 0		#Gibt an, in welchem seiner 3 möglichen Würfe sich ein Spieler befindet
-		self.bonusAchieved = self.numberOfPlayers * [False]
-		self.sumOfAllPoints = self.numberOfPlayers * [0]		#Vielleicht zu dict ändern oder neue Klasse Player?
+		#self.bonusAchieved = self.numberOfPlayers * [False]
+		#self.sumOfAllPoints = self.numberOfPlayers * [0]		#Vielleicht zu dict ändern oder neue Klasse Player?
 	
 	def play(self):
 		for i in range(self.numberOfPlayers):
 			name = input(f"Name Spieler {i}: ")
-			self.registered[i] = Table(name)
-	
+			#self.registered[i] = Table(name)
+			self.players[i] = Player(name)
+			
 		for roundCounter in range(13):
 			for i in range(self.numberOfPlayers):
-				self.playingPlayer = self.registered[i].name			#Der Spieler, der gerade an der Reihe ist, wird ausgegeben
+				#self.playingPlayer = self.registered[i].name			#Der Spieler, der gerade an der Reihe ist, wird ausgegeben
+				self.playingPlayer = self.players[i].name
 				print(self.playingPlayer)
 			
 				rolled = Dice()
@@ -48,7 +51,7 @@ class Game:
 						self.playerRollCounter += 1
 						print("Ihr Wurf:", rolled.roll)  #Zeige dem Benutzer seinen Wurf
 
-				possibilities = Table(self.registered[i].name)			#Diese Tabelle gibt dem Spieler an, welche Punktzahlen er sich eintragen lassen kann
+				possibilities = Table()			#Diese Tabelle gibt dem Spieler an, welche Punktzahlen er sich eintragen lassen kann
 				possibilities.table["Einser"] = rolled.numberOf[1] * 1
 				possibilities.table["Zweier"] = rolled.numberOf[2] * 2
 				possibilities.table["Dreier"] = rolled.numberOf[3] * 3
@@ -65,28 +68,41 @@ class Game:
 				possibilities.table["Chance"] = rolled.checkChance()[1]
 				
 				#Hier werden alle Möglichkeiten ausgegeben, die der Spieler hat, etwas einzutragen.
-				for figur in self.registered[i].table:
-					if self.registered[i].table[figur] is None:
-						print(figur, possibilities.table[figur])
+				#for figur in self.registered[i].table:
+					#if self.registered[i].table[figur] is None:
+						#print(figur, possibilities.table[figur])
+				for figur in self.players[i].registered.table:
+					if self.players[i].registered.table[figur] is None:
+						print(figur, possibilities.table[figur]
 
 				#Abfrage an den Spieler, was er eintragen will.
 				chosen = input("Was wollen Sie eintragen? ")
-				while chosen not in self.registered[i].table:
+				#while chosen not in self.registered[i].table:
+				while chosen not in self.players[i].registered.table:
 					chosen = input("Falsche Eingabe. Was wollen Sie eintragen? ")
-				self.registered[i].table[chosen] = possibilities.table[chosen]
-				self.sumOfAllPoints[i] += possibilities.table[chosen]
+				#self.registered[i].table[chosen] = possibilities.table[chosen]
+				#self.sumOfAllPoints[i] += possibilities.table[chosen]
+				self.players[i].registered.table[chosen] = possibilities.table[chosen]
+				self.players[i].sumOfAllPoints += possibilities.table[chosen]
 				
 				#Bonusabfrage
-				if self.registered[i].checkBonus() and not self.bonusAchieved[i]:
-					self.bonusAchieved[i] = True
+				#if self.registered[i].checkBonus() and not self.bonusAchieved[i]:
+					#self.bonusAchieved[i] = True
+					#print("Sie haben den Bonus erreicht")
+					#self.registered[i].table["Bonus"] = 35
+				if self.players[i].registered.checkBonus() and not self.players[i].bonusAchieved:
+					self.players[i].bonusAchieve = True
 					print("Sie haben den Bonus erreicht")
-					self.registered[i].table["Bonus"] = 35
+					self.players[i].registered.table["Bonus"] = 35
 				
 				self.playerRollCounter = 0
-			for tabelle in self.registered:
-				print(tabelle.name, tabelle.table)		#Ausgabe aller Punktetabellen nach jeder fertigen Runde.
-		print(self.sumOfAllPoints)
-			
+			#for tabelle in self.registered:
+				#print(tabelle.name, tabelle.table)		#Ausgabe aller Punktetabellen nach jeder fertigen Runde.
+			for player in self.players:
+				print(player.name, player.registered.table)
+		#print(self.sumOfAllPoints)
+		for player in self.players:
+			print(player.name, player.sumOfAllPoints)
 				
 			
 			
@@ -96,8 +112,7 @@ class Game:
 			
 		
 class Table:
-	def __init__(self, name):
-		self.name = name
+	def __init__(self):
 		self.table = {"Einser": None, "Zweier": None, "Dreier": None, "Vierer": None, "Fünfer": None, "Sechser": None, "Bonus": 0,
 			      "Dreierpasch": None, "Viererpasch": None, "FullHouse": None, "KleineStrasse": None, "GrosseStrasse": None, "Kniffel": None, "Chance": None}
 
