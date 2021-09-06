@@ -73,7 +73,8 @@ class Game:
 						#print(figur, possibilities.table[figur])
 				for figur in self.players[i].registered.table:
 					if self.players[i].registered.table[figur] is None:
-						print(figur, possibilities.table[figur]
+						print(figur, possibilities.table[figur])
+				
 
 				#Abfrage an den Spieler, was er eintragen will.
 				chosen = input("Was wollen Sie eintragen? ")
