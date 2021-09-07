@@ -6,175 +6,68 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1070</width>
-    <height>771</height>
+    <width>834</width>
+    <height>732</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Kniffel</string>
   </property>
-  <widget class="QWidget" name="layoutWidget">
+  <property name="accessibleName">
+   <string/>
+  </property>
+  <widget class="WuerfelWidget" name="widget" native="true">
    <property name="geometry">
     <rect>
-     <x>40</x>
+     <x>200</x>
      <y>200</y>
-     <width>1011</width>
-     <height>371</height>
+     <width>120</width>
+     <height>80</height>
     </rect>
    </property>
-   <layout class="QHBoxLayout" name="horizontalLayout">
-    <item>
-     <layout class="QVBoxLayout" name="verticalLayout">
-      <item>
-       <widget class="QGroupBox" name="diceArea">
-        <property name="title">
-         <string>diceArea</string>
-        </property>
-        <widget class="QPushButton" name="pushButton">
-         <property name="geometry">
-          <rect>
-           <x>10</x>
-           <y>50</y>
-           <width>112</width>
-           <height>34</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string>PushButton</string>
-         </property>
-        </widget>
-        <widget class="QPushButton" name="pushButton_2">
-         <property name="geometry">
-          <rect>
-           <x>140</x>
-           <y>50</y>
-           <width>112</width>
-           <height>34</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string>PushButton</string>
-         </property>
-        </widget>
-        <widget class="QPushButton" name="pushButton_3">
-         <property name="geometry">
-          <rect>
-           <x>280</x>
-           <y>50</y>
-           <width>112</width>
-           <height>34</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string>PushButton</string>
-         </property>
-        </widget>
-        <widget class="QPushButton" name="pushButton_4">
-         <property name="geometry">
-          <rect>
-           <x>50</x>
-           <y>110</y>
-           <width>112</width>
-           <height>34</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string>PushButton</string>
-         </property>
-        </widget>
-        <widget class="QPushButton" name="pushButton_5">
-         <property name="geometry">
-          <rect>
-           <x>210</x>
-           <y>110</y>
-           <width>112</width>
-           <height>34</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string>PushButton</string>
-         </property>
-        </widget>
-       </widget>
-      </item>
-      <item>
-       <widget class="QGroupBox" name="buttonArea">
-        <property name="title">
-         <string>buttonArea</string>
-        </property>
-        <widget class="QWidget" name="layoutWidget">
-         <property name="geometry">
-          <rect>
-           <x>10</x>
-           <y>50</y>
-           <width>454</width>
-           <height>36</height>
-          </rect>
-         </property>
-         <layout class="QHBoxLayout" name="horizontalLayout_2">
-          <item>
-           <widget class="QPushButton" name="rerollButton">
-            <property name="text">
-             <string>reroll</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <spacer name="horizontalSpacer">
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>40</width>
-              <height>20</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-          <item>
-           <widget class="QPushButton" name="highlightButton">
-            <property name="text">
-             <string>highlight</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <spacer name="horizontalSpacer_2">
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>40</width>
-              <height>20</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-          <item>
-           <widget class="QPushButton" name="endTurnButton">
-            <property name="text">
-             <string>end turn</string>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </widget>
-       </widget>
-      </item>
-     </layout>
-    </item>
-    <item>
-     <widget class="QGroupBox" name="playerInformation">
-      <property name="title">
-       <string>playerInformation</string>
-      </property>
-     </widget>
-    </item>
-   </layout>
+  </widget>
+  <widget class="QPushButton" name="pushButton">
+   <property name="geometry">
+    <rect>
+     <x>240</x>
+     <y>400</y>
+     <width>75</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>PushButton</string>
+   </property>
   </widget>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>WuerfelWidget</class>
+   <extends>QWidget</extends>
+   <header>wuerfelwidget.h</header>
+   <container>1</container>
+   <slots>
+    <slot>wuerfeln()</slot>
+   </slots>
+  </customwidget>
+ </customwidgets>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>pushButton</sender>
+   <signal>clicked()</signal>
+   <receiver>widget</receiver>
+   <slot>wuerfeln()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>271</x>
+     <y>411</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>272</x>
+     <y>244</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>
