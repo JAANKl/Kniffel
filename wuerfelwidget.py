@@ -13,6 +13,7 @@ class WuerfelWidget(QWidget):
         self.dice_spacing = 8
 
         self.setFixedWidth(self.dice_spacing + 5 * (self.dice_size + self.dice_spacing))
+        self.setFixedHeight(2 * self.dice_spacing + self.dice_size)
 
         dice1 = QPixmap(os.path.join("dice", "dice1.png"))
         dice2 = QPixmap(os.path.join("dice", "dice2.png"))
@@ -42,7 +43,7 @@ class WuerfelWidget(QWidget):
 
         #draw background
         painter.setPen(Qt.NoPen)
-        painter.setBrush(Qt.darkGreen)
+        painter.setBrush(Qt.white)
         painter.drawRect(event.rect())
 
         x = self.dice_spacing
