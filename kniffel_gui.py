@@ -116,4 +116,4 @@ class Game:
         return possibilities
     
     def register(self, name):
-        self.player.registered[name] = self.possibilities[name]
+        self.player.registered.table[name] = self.possibilities().table[name]
