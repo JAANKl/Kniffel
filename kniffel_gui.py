@@ -85,9 +85,9 @@ class Dice:
 
 
 class Game:
-    def __init__(self, numberOfPlayers=1):
-        #self.numberOfPlayers = numberOfPlayers
-        #self.players = self.numberOfPlayers * [None]    #Liste aller Spieler
+    def __init__(self):
+        self.playerNames = []    #Liste aller Spieler
+        self.numberOfPlayers = 0
         #self.playingPlayer = None   #Name des gerade spielenden Spielers
         self.playerRollCounter = 0  #Gibt an, in welchem seiner 3 möglichen Würfe sich ein Spieler befindet
         self.dice = Dice()
