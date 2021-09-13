@@ -71,7 +71,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>Anzahl Runden:</string>
+    <string>Runde:</string>
    </property>
    <property name="wordWrap">
     <bool>false</bool>
@@ -438,13 +438,26 @@
    <property name="geometry">
     <rect>
      <x>450</x>
-     <y>480</y>
+     <y>470</y>
      <width>75</width>
      <height>23</height>
     </rect>
    </property>
    <property name="text">
     <string>Ok</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_totalScore">
+   <property name="geometry">
+    <rect>
+     <x>340</x>
+     <y>400</y>
+     <width>171</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
    </property>
   </widget>
  </widget>
@@ -462,6 +475,7 @@
     <signal>showRollCounter(QString)</signal>
     <signal>showError(QString)</signal>
     <signal>showStatus(QString)</signal>
+    <signal>showScore(QString)</signal>
     <slot>wuerfeln()</slot>
     <slot>registerEinser()</slot>
     <slot>registerZweier()</slot>
@@ -830,6 +844,22 @@
     <hint type="destinationlabel">
      <x>497</x>
      <y>427</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>widget</sender>
+   <signal>showScore(QString)</signal>
+   <receiver>label_totalScore</receiver>
+   <slot>setText(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>126</x>
+     <y>112</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>417</x>
+     <y>413</y>
     </hint>
    </hints>
   </connection>
