@@ -92,9 +92,13 @@ class Game:
         self.playerRollCounter = 0  #Gibt an, in welchem seiner 3 möglichen Würfe sich ein Spieler befindet
         self.dice = Dice()
         self.player = Player("Spieler")
+        self.roundCounter = 1       #Gibt an, in welcher Runde man sich befindet
 
-    def rollDice(self, chosenIndices):
-        self.dice.newRoll(chosenIndices)
+    def rollDice(self, chosenIndices, numberOfRolls):
+        if numberOfRolls < 3:
+            self.dice.newRoll(chosenIndices)
+        else:
+            raise TooManyRolls("Es wurde schon dreimal gewürfelt")
     
     def possibilities(self):
         possibilities = Table()
@@ -115,5 +119,14 @@ class Game:
         
         return possibilities
     
-    def register(self, name):
-        self.player.registered.table[name] = self.possibilities().table[name]
+    def register(self, figur):
+        if self.player.registered.table[figur] is None:
+            self.player.registered.table[figur] = self.possibilities().table[figur]
+        else:
+            raise AlreadyRegistered("Ist bereits eingetragen")
+
+class AlreadyRegistered(Exception):
+	pass #Exception, falls man etwas eintragen will, was schon eingetragen wurde
+
+class TooManyRolls(Exception):
+	pass #Exception, falls schon zu oft gewürfelt wurde
