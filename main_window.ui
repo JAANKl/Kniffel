@@ -411,6 +411,19 @@
     <string>TextLabel</string>
    </property>
   </widget>
+  <widget class="QLabel" name="label_10">
+   <property name="geometry">
+    <rect>
+     <x>230</x>
+     <y>430</y>
+     <width>151</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
  </widget>
  <customwidgets>
   <customwidget>
@@ -424,6 +437,7 @@
     <signal>showPlayerName(QString)</signal>
     <signal>showRoundCounter(QString)</signal>
     <signal>showRollCounter(QString)</signal>
+    <signal>showError(QString)</signal>
     <slot>wuerfeln()</slot>
     <slot>registerEinser()</slot>
     <slot>registerZweier()</slot>
@@ -776,6 +790,22 @@
     <hint type="destinationlabel">
      <x>168</x>
      <y>184</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>widget</sender>
+   <signal>showError(QString)</signal>
+   <receiver>label_10</receiver>
+   <slot>setText(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>214</x>
+     <y>136</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>256</x>
+     <y>438</y>
     </hint>
    </hints>
   </connection>
