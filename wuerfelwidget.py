@@ -15,6 +15,7 @@ class WuerfelWidget(QWidget):
     showRoundCounter = QtCore.pyqtSignal(str)
     showRollCounter = QtCore.pyqtSignal(str)
     showStatus = QtCore.pyqtSignal(str)
+    showScore = QtCore.pyqtSignal(str)
 
 
     def __init__(self, parent=None):
@@ -45,16 +46,17 @@ class WuerfelWidget(QWidget):
         try:
             self._logic.rollDice(chosenIndices, self._logic.playerRollCounter)
             self._logic.playerRollCounter += 1
-            self.showPlayerName.emit(self._logic.player.name)
-            self.showRoundCounter.emit(str(self._logic.roundCounter))
             self.showRollCounter.emit(str(self._logic.playerRollCounter))
 
             possibilities = self._logic.possibilities()
-            text = ""
-            for name in possibilities.table:
-                if self._logic.player.registered.table[name] is None:
-                    text += name + ": " + str(possibilities.table[name]) + "\n"
-            self.showPossibilities.emit(text)
+            textPossibilities = "Möglichkeiten:\n"
+
+            for name in self._logic.playingPlayer.registered.table:
+                if self._logic.playingPlayer.registered.table[name] is None:
+                    textPossibilities += name + ": " + str(possibilities.table[name]) + "\n"
+
+            self.showPossibilities.emit(textPossibilities)
+            self.showStatus.emit("")
             self.update()
 
         except TooManyRolls as tmr:
@@ -65,27 +67,40 @@ class WuerfelWidget(QWidget):
             self._logic.register(figur)
 
             #Bonusabfrage
-            if self._logic.player.registered.checkBonus() and not self._logic.player.bonusAchieved:
-                self._logic.player.bonusAchieved = True
+            if self._logic.playingPlayer.registered.checkBonus() and not self._logic.playingPlayer.bonusAchieved:
+                self._logic.playingPlayer.bonusAchieved = True
                 self.showStatus.emit("Sie haben den Bonus erreicht")
-                self._logic.player.registered.table["Bonus"] = 35
+                self._logic.playingPlayer.registered.table["Bonus"] = 35
+                self._logic.playingPlayer.sumOfAllPoints += 35
 
-            text = ""
-            for name in self._logic.player.registered.table:
-                text += name + ": " + str(self._logic.player.registered.table[name]) + "\n"
             self._logic.playerRollCounter = 0
-            self._logic.roundCounter += 1
-            self._logic.player.sumOfAllPoints += self._logic.player.registered.table[figur]
-            text += "Gesamtpunktzahl: " + str(self._logic.player.sumOfAllPoints)
+            self._logic.playingPlayer.sumOfAllPoints += self._logic.playingPlayer.registered.table[figur]
+            #text += "Gesamtpunktzahl: " + str(self._logic.player.sumOfAllPoints)
+            playerIndex = self._logic.players.index(self._logic.playingPlayer)
+            if playerIndex == self._logic.numberOfPlayers - 1:
+                self._logic.playingPlayer = self._logic.players[0]
+                self._logic.roundCounter += 1
+            else:
+                self._logic.playingPlayer = self._logic.players[playerIndex + 1]
+                
 
-            self.showRegistered.emit(text)
+            textRegistered = "erzielte Punkte:\n"
+            for name in self._logic.playingPlayer.registered.table:
+                textRegistered += name + ": " + str(self._logic.playingPlayer.registered.table[name]) + "\n"
+            
+            textScore = "Gesamtscore:\n"
+            for player in self._logic.players:
+                textScore += player.name + ": " + str(player.sumOfAllPoints) + "\n"
 
+            self.showPlayerName.emit(self._logic.playingPlayer.name)
+            self.showRoundCounter.emit(str(self._logic.roundCounter))
+            self.showRollCounter.emit("0")
+            self.showRegistered.emit(textRegistered)
+            self.showPossibilities.emit("Möglichkeiten:\n")
+            self.showScore.emit(textScore)
+            
         except AlreadyRegistered as ar:
             self.showStatus.emit(str(ar))
-    
-
-    def possibilities(self):
-        pass
 
     def paintEvent(self, event):
         painter = QPainter(self)
