@@ -1,6 +1,8 @@
 import sys
 from PyQt5 import uic, QtWidgets, QtCore
 
+from kniffel_gui import Player
+
 Ui_MainWindow, WindowBaseClass = uic.loadUiType("main_window.ui")
 class MyDialog(WindowBaseClass, Ui_MainWindow):
 
@@ -14,9 +16,23 @@ class MyDialog(WindowBaseClass, Ui_MainWindow):
     def acceptPlayerName(self):
         if not self.startedGame:
             name = self.textEdit_PlayerName.toPlainText()
-            self.widget._logic.playerNames.append(name)
-            self.widget._logic.numberOfPlayers = len(self.widget._logic.playerNames)
-            print(self.widget._logic.playerNames)
+            self.widget._logic.players.append(Player(name))
+            self.widget._logic.numberOfPlayers = len(self.widget._logic.players)
+            
+            player1 = self.widget._logic.players[0]
+            self.widget._logic.playingPlayer = player1
+            textRegistered = "erzielte Punkte:\n"
+            for figur in player1.registered.table:
+                textRegistered += figur + ": " + str(player1.registered.table[figur]) + "\n"
+
+            textScore = "Gesamtscore:\n"
+            for player in self.widget._logic.players:
+                textScore += player.name + ": " + str(player.sumOfAllPoints) + "\n"
+            
+            self.widget.showPlayerName.emit(player1.name)
+            self.widget.showRoundCounter.emit("1")
+            self.widget.showRegistered.emit(textRegistered)
+            self.widget.showScore.emit(textScore)
     
     def startGame(self):
         self.startedGame = True
