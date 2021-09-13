@@ -5,7 +5,7 @@ from PyQt5.QtWidgets import QWidget
 from PyQt5.Qt import Qt
 from PyQt5 import QtCore
 
-from kniffel_gui import Game
+from kniffel_gui import AlreadyRegistered, Game, TooManyRolls
 
 class WuerfelWidget(QWidget):
 
@@ -14,6 +14,7 @@ class WuerfelWidget(QWidget):
     showPlayerName = QtCore.pyqtSignal(str)
     showRoundCounter = QtCore.pyqtSignal(str)
     showRollCounter = QtCore.pyqtSignal(str)
+    showError = QtCore.pyqtSignal(str)
 
 
     def __init__(self, parent=None):
@@ -41,109 +42,178 @@ class WuerfelWidget(QWidget):
         self._logic = Game()
 
     def wuerfeln(self):
-        self._logic.rollDice([0, 1, 2, 3, 4])
-        self._logic.playerRollCounter += 1
-        self.showPlayerName.emit(self._logic.player.name)
-        self.showRoundCounter.emit(str(1))
-        self.showRollCounter.emit(str(self._logic.playerRollCounter))
+        try:
+            self._logic.rollDice([0, 1, 2, 3, 4], self._logic.playerRollCounter)
+            self._logic.playerRollCounter += 1
+            self.showPlayerName.emit(self._logic.player.name)
+            self.showRoundCounter.emit(str(self._logic.roundCounter))
+            self.showRollCounter.emit(str(self._logic.playerRollCounter))
 
-        possibilities = self._logic.possibilities()
-        text = ""
-        for name in possibilities.table:
-            text += name + ": " + str(possibilities.table[name]) + "\n"
-        self.showPossibilities.emit(text)
-        self.update()
+            possibilities = self._logic.possibilities()
+            text = ""
+            for name in possibilities.table:
+                if self._logic.player.registered.table[name] is None:
+                    text += name + ": " + str(possibilities.table[name]) + "\n"
+            self.showPossibilities.emit(text)
+            self.update()
+        except TooManyRolls as tmr:
+            self.showError.emit(str(tmr))
 
     def registerEinser(self):
-        self._logic.register("Einser")
-        text = ""
-        for figur in self._logic.player.registered.table:
-            text += figur + ": " + str(self._logic.player.registered.table[figur]) + "\n"
-        self.showRegistered.emit(text)
+        try:
+            self._logic.register("Einser")
+            text = ""
+            for figur in self._logic.player.registered.table:
+                text += figur + ": " + str(self._logic.player.registered.table[figur]) + "\n"
+            self.showRegistered.emit(text)
+            self._logic.playerRollCounter = 0
+            self._logic.roundCounter += 1
+        except AlreadyRegistered as ar:
+            self.showError.emit(str(ar))
     
     def registerZweier(self):
-        self._logic.register("Zweier")
-        text = ""
-        for figur in self._logic.player.registered.table:
-            text += figur + ": " + str(self._logic.player.registered.table[figur]) + "\n"
-        self.showRegistered.emit(text)
-    
+        try:
+            self._logic.register("Zweier")
+            text = ""
+            for figur in self._logic.player.registered.table:
+                text += figur + ": " + str(self._logic.player.registered.table[figur]) + "\n"
+            self.showRegistered.emit(text)
+            self._logic.playerRollCounter = 0
+            self._logic.roundCounter += 1
+        except AlreadyRegistered as ar:
+            self.showError.emit(str(ar))
+
     def registerDreier(self):
-        self._logic.register("Dreier")
-        text = ""
-        for figur in self._logic.player.registered.table:
-            text += figur + ": " + str(self._logic.player.registered.table[figur]) + "\n"
-        self.showRegistered.emit(text)
-    
+        try:
+            self._logic.register("Dreier")
+            text = ""
+            for figur in self._logic.player.registered.table:
+                text += figur + ": " + str(self._logic.player.registered.table[figur]) + "\n"
+            self.showRegistered.emit(text)
+            self._logic.playerRollCounter = 0
+            self._logic.roundCounter += 1
+        except AlreadyRegistered as ar:
+            self.showError.emit(str(ar))
+
     def registerVierer(self):
-        self._logic.register("Vierer")
-        text = ""
-        for figur in self._logic.player.registered.table:
-            text += figur + ": " + str(self._logic.player.registered.table[figur]) + "\n"
-        self.showRegistered.emit(text)
-    
+        try:
+            self._logic.register("Vierer")
+            text = ""
+            for figur in self._logic.player.registered.table:
+                text += figur + ": " + str(self._logic.player.registered.table[figur]) + "\n"
+            self.showRegistered.emit(text)
+            self._logic.playerRollCounter = 0
+            self._logic.roundCounter += 1
+        except AlreadyRegistered as ar:
+            self.showError.emit(str(ar))
+
     def registerFuenfer(self):
-        self._logic.register("Fünfer")
-        text = ""
-        for figur in self._logic.player.registered.table:
-            text += figur + ": " + str(self._logic.player.registered.table[figur]) + "\n"
-        self.showRegistered.emit(text)
-    
+        try:
+            self._logic.register("Fünfer")
+            text = ""
+            for figur in self._logic.player.registered.table:
+                text += figur + ": " + str(self._logic.player.registered.table[figur]) + "\n"
+            self.showRegistered.emit(text)
+            self._logic.playerRollCounter = 0
+            self._logic.roundCounter += 1
+        except AlreadyRegistered as ar:
+            self.showError.emit(str(ar))
+
     def registerSechser(self):
-        self._logic.register("Sechser")
-        text = ""
-        for figur in self._logic.player.registered.table:
-            text += figur + ": " + str(self._logic.player.registered.table[figur]) + "\n"
-        self.showRegistered.emit(text)
-    
+        try:
+            self._logic.register("Sechser")
+            text = ""
+            for figur in self._logic.player.registered.table:
+                text += figur + ": " + str(self._logic.player.registered.table[figur]) + "\n"
+            self.showRegistered.emit(text)
+            self._logic.playerRollCounter = 0
+            self._logic.roundCounter += 1
+        except AlreadyRegistered as ar:
+            self.showError.emit(str(ar))
+
     def registerDreierpasch(self):
-        self._logic.register("Dreierpasch")
-        text = ""
-        for figur in self._logic.player.registered.table:
-            text += figur + ": " + str(self._logic.player.registered.table[figur]) + "\n"
-        self.showRegistered.emit(text)
-    
+        try:
+            self._logic.register("Dreierpasch")
+            text = ""
+            for figur in self._logic.player.registered.table:
+                text += figur + ": " + str(self._logic.player.registered.table[figur]) + "\n"
+            self.showRegistered.emit(text)
+            self._logic.playerRollCounter = 0
+            self._logic.roundCounter += 1
+        except AlreadyRegistered as ar:
+            self.showError.emit(str(ar))
+
     def registerViererpasch(self):
-        self._logic.register("Viererpasch")
-        text = ""
-        for figur in self._logic.player.registered.table:
-            text += figur + ": " + str(self._logic.player.registered.table[figur]) + "\n"
-        self.showRegistered.emit(text)
-    
+        try:
+            self._logic.register("Viererpasch")
+            text = ""
+            for figur in self._logic.player.registered.table:
+                text += figur + ": " + str(self._logic.player.registered.table[figur]) + "\n"
+            self.showRegistered.emit(text)
+            self._logic.playerRollCounter = 0
+            self._logic.roundCounter += 1
+        except AlreadyRegistered as ar:
+            self.showError.emit(str(ar))
+
     def registerFullHouse(self):
-        self._logic.register("FullHouse")
-        text = ""
-        for figur in self._logic.player.registered.table:
-            text += figur + ": " + str(self._logic.player.registered.table[figur]) + "\n"
-        self.showRegistered.emit(text)
-    
+        try:
+            self._logic.register("FullHouse")
+            text = ""
+            for figur in self._logic.player.registered.table:
+                text += figur + ": " + str(self._logic.player.registered.table[figur]) + "\n"
+            self.showRegistered.emit(text)
+            self._logic.playerRollCounter = 0
+            self._logic.roundCounter += 1
+        except AlreadyRegistered as ar:
+            self.showError.emit(str(ar))
+
     def registerKleineStrasse(self):
-        self._logic.register("KleineStrasse")
-        text = ""
-        for figur in self._logic.player.registered.table:
-            text += figur + ": " + str(self._logic.player.registered.table[figur]) + "\n"
-        self.showRegistered.emit(text)
-    
+        try:
+            self._logic.register("KleineStrasse")
+            text = ""
+            for figur in self._logic.player.registered.table:
+                text += figur + ": " + str(self._logic.player.registered.table[figur]) + "\n"
+            self.showRegistered.emit(text)
+            self._logic.playerRollCounter = 0
+            self._logic.roundCounter += 1
+        except AlreadyRegistered as ar:
+            self.showError.emit(str(ar))
+
     def registerGrosseStrasse(self):
-        self._logic.register("GrosseStrasse")
-        text = ""
-        for figur in self._logic.player.registered.table:
-            text += figur + ": " + str(self._logic.player.registered.table[figur]) + "\n"
-        self.showRegistered.emit(text)
-    
+        try:
+            self._logic.register("GrosseStrasse")
+            text = ""
+            for figur in self._logic.player.registered.table:
+                text += figur + ": " + str(self._logic.player.registered.table[figur]) + "\n"
+            self.showRegistered.emit(text)
+            self._logic.playerRollCounter = 0
+            self._logic.roundCounter += 1
+        except AlreadyRegistered as ar:
+            self.showError.emit(str(ar))
+
     def registerKniffel(self):
-        self._logic.register("Kniffel")
-        text = ""
-        for figur in self._logic.player.registered.table:
-            text += figur + ": " + str(self._logic.player.registered.table[figur]) + "\n"
-        self.showRegistered.emit(text)
-    
+        try:
+            self._logic.register("Kniffel")
+            text = ""
+            for figur in self._logic.player.registered.table:
+                text += figur + ": " + str(self._logic.player.registered.table[figur]) + "\n"
+            self.showRegistered.emit(text)
+            self._logic.playerRollCounter = 0
+            self._logic.roundCounter += 1
+        except AlreadyRegistered as ar:
+            self.showError.emit(str(ar))
+
     def registerChance(self):
-        self._logic.register("Chance")
-        text = ""
-        for figur in self._logic.player.registered.table:
-            text += figur + ": " + str(self._logic.player.registered.table[figur]) + "\n"
-        self.showRegistered.emit(text)
+        try:
+            self._logic.register("Chance")
+            text = ""
+            for figur in self._logic.player.registered.table:
+                text += figur + ": " + str(self._logic.player.registered.table[figur]) + "\n"
+            self.showRegistered.emit(text)
+            self._logic.playerRollCounter = 0
+            self._logic.roundCounter += 1
+        except AlreadyRegistered as ar:
+            self.showError.emit(str(ar))
 
     def possibilities(self):
         pass
