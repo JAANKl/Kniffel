@@ -1089,6 +1089,22 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>pushButton_acceptName</sender>
+   <signal>clicked()</signal>
+   <receiver>textEdit_PlayerName</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>737</x>
+     <y>550</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>601</x>
+     <y>553</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <signal>chosenDice(QString)</signal>
