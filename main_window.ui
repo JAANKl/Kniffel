@@ -668,8 +668,8 @@
      <y>136</y>
     </hint>
     <hint type="destinationlabel">
-     <x>437</x>
-     <y>493</y>
+     <x>297</x>
+     <y>462</y>
     </hint>
    </hints>
   </connection>
@@ -680,8 +680,8 @@
    <slot>wuerfeln()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>48</x>
-     <y>191</y>
+     <x>28</x>
+     <y>415</y>
     </hint>
     <hint type="destinationlabel">
      <x>251</x>
@@ -696,12 +696,12 @@
    <slot>setText(QString)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>255</x>
-     <y>59</y>
+     <x>248</x>
+     <y>49</y>
     </hint>
     <hint type="destinationlabel">
-     <x>534</x>
-     <y>50</y>
+     <x>535</x>
+     <y>19</y>
     </hint>
    </hints>
   </connection>
@@ -712,12 +712,12 @@
    <slot>setText(QString)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>280</x>
-     <y>62</y>
+     <x>248</x>
+     <y>52</y>
     </hint>
     <hint type="destinationlabel">
-     <x>532</x>
-     <y>68</y>
+     <x>533</x>
+     <y>37</y>
     </hint>
    </hints>
   </connection>
@@ -728,12 +728,12 @@
    <slot>setText(QString)</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>279</x>
-     <y>95</y>
+     <x>248</x>
+     <y>85</y>
     </hint>
     <hint type="destinationlabel">
-     <x>527</x>
-     <y>101</y>
+     <x>528</x>
+     <y>70</y>
     </hint>
    </hints>
   </connection>
@@ -760,8 +760,8 @@
    <slot>registerEinser()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>36</x>
-     <y>234</y>
+     <x>17</x>
+     <y>456</y>
     </hint>
     <hint type="destinationlabel">
      <x>20</x>
@@ -776,8 +776,8 @@
    <slot>registerZweier()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>159</x>
-     <y>225</y>
+     <x>131</x>
+     <y>447</y>
     </hint>
     <hint type="destinationlabel">
      <x>206</x>
@@ -792,8 +792,8 @@
    <slot>registerDreier()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>70</x>
-     <y>272</y>
+     <x>193</x>
+     <y>454</y>
     </hint>
     <hint type="destinationlabel">
      <x>34</x>
@@ -808,8 +808,8 @@
    <slot>registerVierer()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>193</x>
-     <y>278</y>
+     <x>54</x>
+     <y>497</y>
     </hint>
     <hint type="destinationlabel">
      <x>191</x>
@@ -824,8 +824,8 @@
    <slot>registerFuenfer()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>57</x>
-     <y>325</y>
+     <x>109</x>
+     <y>494</y>
     </hint>
     <hint type="destinationlabel">
      <x>25</x>
@@ -840,8 +840,8 @@
    <slot>registerSechser()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>155</x>
-     <y>325</y>
+     <x>188</x>
+     <y>484</y>
     </hint>
     <hint type="destinationlabel">
      <x>133</x>
@@ -856,8 +856,8 @@
    <slot>registerDreierpasch()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>66</x>
-     <y>384</y>
+     <x>37</x>
+     <y>530</y>
     </hint>
     <hint type="destinationlabel">
      <x>28</x>
@@ -872,8 +872,8 @@
    <slot>registerViererpasch()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>186</x>
-     <y>379</y>
+     <x>148</x>
+     <y>535</y>
     </hint>
     <hint type="destinationlabel">
      <x>183</x>
@@ -888,8 +888,8 @@
    <slot>registerFullHouse()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>55</x>
-     <y>430</y>
+     <x>188</x>
+     <y>526</y>
     </hint>
     <hint type="destinationlabel">
      <x>31</x>
@@ -904,8 +904,8 @@
    <slot>registerKleineStrasse()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>160</x>
-     <y>434</y>
+     <x>31</x>
+     <y>567</y>
     </hint>
     <hint type="destinationlabel">
      <x>156</x>
@@ -920,8 +920,8 @@
    <slot>registerGrosseStrasse()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>45</x>
-     <y>488</y>
+     <x>117</x>
+     <y>561</y>
     </hint>
     <hint type="destinationlabel">
      <x>16</x>
@@ -936,8 +936,8 @@
    <slot>registerKniffel()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>133</x>
-     <y>496</y>
+     <x>196</x>
+     <y>569</y>
     </hint>
     <hint type="destinationlabel">
      <x>133</x>
@@ -952,8 +952,8 @@
    <slot>registerChance()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>270</x>
-     <y>493</y>
+     <x>152</x>
+     <y>603</y>
     </hint>
     <hint type="destinationlabel">
      <x>264</x>
@@ -968,8 +968,8 @@
    <slot>startGame()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>85</x>
-     <y>188</y>
+     <x>65</x>
+     <y>412</y>
     </hint>
     <hint type="destinationlabel">
      <x>133</x>
@@ -984,8 +984,8 @@
    <slot>acceptPlayerName()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>585</x>
-     <y>545</y>
+     <x>751</x>
+     <y>565</y>
     </hint>
     <hint type="destinationlabel">
      <x>497</x>
@@ -1006,6 +1006,86 @@
     <hint type="destinationlabel">
      <x>417</x>
      <y>413</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBoxWuerfel1</sender>
+   <signal>clicked()</signal>
+   <receiver>Dialog</receiver>
+   <slot>checkCheckBox1()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>46</x>
+     <y>298</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>57</x>
+     <y>254</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBoxWuerfel2</sender>
+   <signal>clicked()</signal>
+   <receiver>Dialog</receiver>
+   <slot>checkCheckBox2()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>89</x>
+     <y>297</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>99</x>
+     <y>280</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBoxWuerfel3</sender>
+   <signal>clicked()</signal>
+   <receiver>Dialog</receiver>
+   <slot>checkCheckBox3()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>138</x>
+     <y>302</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>149</x>
+     <y>317</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBoxWuerfel4</sender>
+   <signal>clicked()</signal>
+   <receiver>Dialog</receiver>
+   <slot>checkCheckBox4()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>175</x>
+     <y>300</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>180</x>
+     <y>259</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>checkBoxWuerfel5</sender>
+   <signal>clicked()</signal>
+   <receiver>Dialog</receiver>
+   <slot>checkCheckBox5()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>219</x>
+     <y>299</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>252</x>
+     <y>315</y>
     </hint>
    </hints>
   </connection>
@@ -1034,5 +1114,10 @@
   <slot>registerChance()</slot>
   <slot>startGame()</slot>
   <slot>acceptPlayerName()</slot>
+  <slot>checkCheckBox1()</slot>
+  <slot>checkCheckBox2()</slot>
+  <slot>checkCheckBox3()</slot>
+  <slot>checkCheckBox4()</slot>
+  <slot>checkCheckBox5()</slot>
  </slots>
 </ui>
