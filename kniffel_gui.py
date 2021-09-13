@@ -86,12 +86,12 @@ class Dice:
 
 class Game:
     def __init__(self):
-        self.playerNames = []    #Liste aller Spieler
+        self.players = []    #Liste aller Spieler
         self.numberOfPlayers = 0
-        #self.playingPlayer = None   #Name des gerade spielenden Spielers
+        self.playingPlayer = None   #Der gerade spielende Spieler
         self.playerRollCounter = 0  #Gibt an, in welchem seiner 3 möglichen Würfe sich ein Spieler befindet
         self.dice = Dice()
-        self.player = Player("Spieler")
+        #self.player = Player("Spieler")
         self.roundCounter = 1       #Gibt an, in welcher Runde man sich befindet
 
     def rollDice(self, chosenIndices, numberOfRolls):
@@ -120,8 +120,8 @@ class Game:
         return possibilities
     
     def register(self, figur):
-        if self.player.registered.table[figur] is None:
-            self.player.registered.table[figur] = self.possibilities().table[figur]
+        if self.playingPlayer.registered.table[figur] is None:
+            self.playingPlayer.registered.table[figur] = self.possibilities().table[figur]
         else:
             raise AlreadyRegistered("Ist bereits eingetragen")
 
