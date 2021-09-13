@@ -19,14 +19,14 @@
   <widget class="WuerfelWidget" name="widget" native="true">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>19</y>
+     <x>10</x>
+     <y>20</y>
      <width>271</width>
      <height>131</height>
     </rect>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton">
+  <widget class="QPushButton" name="pushButton_Wuerfeln">
    <property name="geometry">
     <rect>
      <x>30</x>
@@ -39,7 +39,7 @@
     <string>Würfeln</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label">
+  <widget class="QLabel" name="label_playerName_2">
    <property name="geometry">
     <rect>
      <x>326</x>
@@ -61,7 +61,7 @@
     <bool>false</bool>
    </property>
   </widget>
-  <widget class="QLabel" name="label_2">
+  <widget class="QLabel" name="label_roundCounter">
    <property name="geometry">
     <rect>
      <x>306</x>
@@ -77,7 +77,7 @@
     <bool>false</bool>
    </property>
   </widget>
-  <widget class="QLabel" name="label_3">
+  <widget class="QLabel" name="label_playerNamePrinted">
    <property name="geometry">
     <rect>
      <x>430</x>
@@ -103,7 +103,7 @@
     <string>0</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_5">
+  <widget class="QLabel" name="label_rollCountePrinted">
    <property name="geometry">
     <rect>
      <x>420</x>
@@ -116,7 +116,7 @@
     <string>0</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_6">
+  <widget class="QLabel" name="label_rollCounter">
    <property name="geometry">
     <rect>
      <x>306</x>
@@ -129,7 +129,7 @@
     <string>Anzahl Würfe:</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_7">
+  <widget class="QLabel" name="label_possibilities">
    <property name="geometry">
     <rect>
      <x>270</x>
@@ -151,7 +151,7 @@
     <bool>true</bool>
    </property>
   </widget>
-  <widget class="QLabel" name="label_8">
+  <widget class="QLabel" name="label_registered">
    <property name="geometry">
     <rect>
      <x>406</x>
@@ -164,7 +164,7 @@
     <string/>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_2">
+  <widget class="QPushButton" name="pushButton_Einser">
    <property name="geometry">
     <rect>
      <x>30</x>
@@ -177,7 +177,7 @@
     <string>Einser</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_3">
+  <widget class="QPushButton" name="pushButton_Zweier">
    <property name="geometry">
     <rect>
      <x>120</x>
@@ -190,7 +190,7 @@
     <string>Zweier</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_4">
+  <widget class="QPushButton" name="pushButton_Dreier">
    <property name="geometry">
     <rect>
      <x>50</x>
@@ -203,7 +203,7 @@
     <string>Dreier</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_5">
+  <widget class="QPushButton" name="pushButton_Vierer">
    <property name="geometry">
     <rect>
      <x>150</x>
@@ -216,7 +216,7 @@
     <string>Vierer</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_6">
+  <widget class="QPushButton" name="pushButton_Fuenfer">
    <property name="geometry">
     <rect>
      <x>40</x>
@@ -229,7 +229,7 @@
     <string>Fünfer</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_7">
+  <widget class="QPushButton" name="pushButton_Viererpasch">
    <property name="geometry">
     <rect>
      <x>130</x>
@@ -242,7 +242,7 @@
     <string>Viererpasch</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_8">
+  <widget class="QPushButton" name="pushButton_FullHouse">
    <property name="geometry">
     <rect>
      <x>40</x>
@@ -255,7 +255,7 @@
     <string>Full House</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_9">
+  <widget class="QPushButton" name="pushButton_KleineStrasse">
    <property name="geometry">
     <rect>
      <x>140</x>
@@ -268,7 +268,7 @@
     <string>Kleine Straße</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_10">
+  <widget class="QPushButton" name="pushButton_Sechser">
    <property name="geometry">
     <rect>
      <x>140</x>
@@ -281,7 +281,7 @@
     <string>Sechser</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_11">
+  <widget class="QPushButton" name="pushButton_Dreierpasch">
    <property name="geometry">
     <rect>
      <x>40</x>
@@ -294,7 +294,7 @@
     <string>Dreierpasch</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_12">
+  <widget class="QPushButton" name="pushButton_GrosseStrasse">
    <property name="geometry">
     <rect>
      <x>20</x>
@@ -307,7 +307,7 @@
     <string>Große Straße</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_13">
+  <widget class="QPushButton" name="pushButton_Kniffel">
    <property name="geometry">
     <rect>
      <x>110</x>
@@ -320,7 +320,7 @@
     <string>Kniffel</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_14">
+  <widget class="QPushButton" name="pushButton_Chance">
    <property name="geometry">
     <rect>
      <x>210</x>
@@ -398,20 +398,7 @@
     <string/>
    </property>
   </widget>
-  <widget class="QLabel" name="label_9">
-   <property name="geometry">
-    <rect>
-     <x>140</x>
-     <y>180</y>
-     <width>47</width>
-     <height>13</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>TextLabel</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_10">
+  <widget class="QLabel" name="label_status">
    <property name="geometry">
     <rect>
      <x>230</x>
@@ -422,6 +409,42 @@
    </property>
    <property name="text">
     <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_playerName">
+   <property name="geometry">
+    <rect>
+     <x>340</x>
+     <y>480</y>
+     <width>47</width>
+     <height>13</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Name:</string>
+   </property>
+  </widget>
+  <widget class="QTextEdit" name="textEdit_PlayerName">
+   <property name="geometry">
+    <rect>
+     <x>390</x>
+     <y>470</y>
+     <width>61</width>
+     <height>41</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_acceptName">
+   <property name="geometry">
+    <rect>
+     <x>450</x>
+     <y>480</y>
+     <width>75</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Ok</string>
    </property>
   </widget>
  </widget>
@@ -438,6 +461,7 @@
     <signal>showRoundCounter(QString)</signal>
     <signal>showRollCounter(QString)</signal>
     <signal>showError(QString)</signal>
+    <signal>showStatus(QString)</signal>
     <slot>wuerfeln()</slot>
     <slot>registerEinser()</slot>
     <slot>registerZweier()</slot>
@@ -458,89 +482,9 @@
  <resources/>
  <connections>
   <connection>
-   <sender>pushButton</sender>
-   <signal>clicked()</signal>
-   <receiver>widget</receiver>
-   <slot>wuerfeln()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>61</x>
-     <y>191</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>92</x>
-     <y>84</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>widget</sender>
-   <signal>showPlayerName(QString)</signal>
-   <receiver>label_3</receiver>
-   <slot>setText(QString)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>106</x>
-     <y>84</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>451</x>
-     <y>18</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>widget</sender>
-   <signal>showRoundCounter(QString)</signal>
-   <receiver>label_4</receiver>
-   <slot>setText(QString)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>111</x>
-     <y>105</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>456</x>
-     <y>48</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>widget</sender>
-   <signal>showRollCounter(QString)</signal>
-   <receiver>label_5</receiver>
-   <slot>setText(QString)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>56</x>
-     <y>103</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>435</x>
-     <y>78</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>widget</sender>
-   <signal>showPossibilities(QString)</signal>
-   <receiver>label_7</receiver>
-   <slot>setText(QString)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>120</x>
-     <y>55</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>331</x>
-     <y>146</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
    <sender>widget</sender>
    <signal>showRegistered(QString)</signal>
-   <receiver>label_8</receiver>
+   <receiver>label_registered</receiver>
    <slot>setText(QString)</slot>
    <hints>
     <hint type="sourcelabel">
@@ -554,249 +498,9 @@
    </hints>
   </connection>
   <connection>
-   <sender>pushButton_2</sender>
-   <signal>clicked()</signal>
-   <receiver>widget</receiver>
-   <slot>registerEinser()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>53</x>
-     <y>225</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>37</x>
-     <y>115</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_3</sender>
-   <signal>clicked()</signal>
-   <receiver>widget</receiver>
-   <slot>registerZweier()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>156</x>
-     <y>230</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>106</x>
-     <y>100</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_4</sender>
-   <signal>clicked()</signal>
-   <receiver>widget</receiver>
-   <slot>registerDreier()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>99</x>
-     <y>274</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>77</x>
-     <y>93</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_5</sender>
-   <signal>clicked()</signal>
-   <receiver>widget</receiver>
-   <slot>registerVierer()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>171</x>
-     <y>268</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>113</x>
-     <y>90</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_6</sender>
-   <signal>clicked()</signal>
-   <receiver>widget</receiver>
-   <slot>registerFuenfer()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>87</x>
-     <y>313</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>87</x>
-     <y>99</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_10</sender>
-   <signal>clicked()</signal>
-   <receiver>widget</receiver>
-   <slot>registerSechser()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>199</x>
-     <y>324</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>136</x>
-     <y>92</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_11</sender>
-   <signal>clicked()</signal>
-   <receiver>widget</receiver>
-   <slot>registerDreierpasch()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>91</x>
-     <y>379</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>53</x>
-     <y>98</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_7</sender>
-   <signal>clicked()</signal>
-   <receiver>widget</receiver>
-   <slot>registerViererpasch()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>151</x>
-     <y>367</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>103</x>
-     <y>69</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_8</sender>
-   <signal>clicked()</signal>
-   <receiver>widget</receiver>
-   <slot>registerFullHouse()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>95</x>
-     <y>421</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>92</x>
-     <y>57</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_9</sender>
-   <signal>clicked()</signal>
-   <receiver>widget</receiver>
-   <slot>registerKleineStrasse()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>192</x>
-     <y>421</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>114</x>
-     <y>97</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_12</sender>
-   <signal>clicked()</signal>
-   <receiver>widget</receiver>
-   <slot>registerGrosseStrasse()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>61</x>
-     <y>484</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>28</x>
-     <y>92</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_13</sender>
-   <signal>clicked()</signal>
-   <receiver>widget</receiver>
-   <slot>registerKniffel()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>149</x>
-     <y>483</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>131</x>
-     <y>110</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton_14</sender>
-   <signal>clicked()</signal>
-   <receiver>widget</receiver>
-   <slot>registerChance()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>249</x>
-     <y>495</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>131</x>
-     <y>52</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButton</sender>
-   <signal>clicked()</signal>
-   <receiver>Dialog</receiver>
-   <slot>checkChosenDice()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>45</x>
-     <y>190</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>234</x>
-     <y>169</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>Dialog</sender>
-   <signal>chosenDice(QString)</signal>
-   <receiver>label_9</receiver>
-   <slot>setText(QString)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>205</x>
-     <y>184</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>168</x>
-     <y>184</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
    <sender>widget</sender>
-   <signal>showError(QString)</signal>
-   <receiver>label_10</receiver>
+   <signal>showStatus(QString)</signal>
+   <receiver>label_status</receiver>
    <slot>setText(QString)</slot>
    <hints>
     <hint type="sourcelabel">
@@ -809,9 +513,350 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>pushButton_Wuerfeln</sender>
+   <signal>clicked()</signal>
+   <receiver>Dialog</receiver>
+   <slot>wuerfeln()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>48</x>
+     <y>191</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>251</x>
+     <y>237</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>widget</sender>
+   <signal>showPlayerName(QString)</signal>
+   <receiver>label_playerNamePrinted</receiver>
+   <slot>setText(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>255</x>
+     <y>59</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>440</x>
+     <y>18</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>widget</sender>
+   <signal>showRoundCounter(QString)</signal>
+   <receiver>label_4</receiver>
+   <slot>setText(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>280</x>
+     <y>62</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>438</x>
+     <y>40</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>widget</sender>
+   <signal>showRollCounter(QString)</signal>
+   <receiver>label_rollCountePrinted</receiver>
+   <slot>setText(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>279</x>
+     <y>95</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>423</x>
+     <y>77</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>widget</sender>
+   <signal>showPossibilities(QString)</signal>
+   <receiver>label_possibilities</receiver>
+   <slot>setText(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>179</x>
+     <y>121</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>339</x>
+     <y>167</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_Einser</sender>
+   <signal>clicked()</signal>
+   <receiver>Dialog</receiver>
+   <slot>registerEinser()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>36</x>
+     <y>234</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>20</x>
+     <y>237</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_Zweier</sender>
+   <signal>clicked()</signal>
+   <receiver>Dialog</receiver>
+   <slot>registerZweier()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>159</x>
+     <y>225</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>206</x>
+     <y>222</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_Dreier</sender>
+   <signal>clicked()</signal>
+   <receiver>Dialog</receiver>
+   <slot>registerDreier()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>70</x>
+     <y>272</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>34</x>
+     <y>273</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_Vierer</sender>
+   <signal>clicked()</signal>
+   <receiver>Dialog</receiver>
+   <slot>registerVierer()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>193</x>
+     <y>278</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>191</x>
+     <y>288</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_Fuenfer</sender>
+   <signal>clicked()</signal>
+   <receiver>Dialog</receiver>
+   <slot>registerFuenfer()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>57</x>
+     <y>325</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>25</x>
+     <y>325</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_Sechser</sender>
+   <signal>clicked()</signal>
+   <receiver>Dialog</receiver>
+   <slot>registerSechser()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>155</x>
+     <y>325</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>133</x>
+     <y>334</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_Dreierpasch</sender>
+   <signal>clicked()</signal>
+   <receiver>Dialog</receiver>
+   <slot>registerDreierpasch()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>66</x>
+     <y>384</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>28</x>
+     <y>379</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_Viererpasch</sender>
+   <signal>clicked()</signal>
+   <receiver>Dialog</receiver>
+   <slot>registerViererpasch()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>186</x>
+     <y>379</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>183</x>
+     <y>386</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_FullHouse</sender>
+   <signal>clicked()</signal>
+   <receiver>Dialog</receiver>
+   <slot>registerFullHouse()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>55</x>
+     <y>430</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>31</x>
+     <y>428</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_KleineStrasse</sender>
+   <signal>clicked()</signal>
+   <receiver>Dialog</receiver>
+   <slot>registerKleineStrasse()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>160</x>
+     <y>434</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>156</x>
+     <y>447</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_GrosseStrasse</sender>
+   <signal>clicked()</signal>
+   <receiver>Dialog</receiver>
+   <slot>registerGrosseStrasse()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>45</x>
+     <y>488</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>16</x>
+     <y>490</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_Kniffel</sender>
+   <signal>clicked()</signal>
+   <receiver>Dialog</receiver>
+   <slot>registerKniffel()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>133</x>
+     <y>496</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>133</x>
+     <y>505</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_Chance</sender>
+   <signal>clicked()</signal>
+   <receiver>Dialog</receiver>
+   <slot>registerChance()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>270</x>
+     <y>493</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>264</x>
+     <y>507</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_Wuerfeln</sender>
+   <signal>clicked()</signal>
+   <receiver>Dialog</receiver>
+   <slot>startGame()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>85</x>
+     <y>188</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>133</x>
+     <y>181</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_acceptName</sender>
+   <signal>clicked()</signal>
+   <receiver>Dialog</receiver>
+   <slot>acceptPlayerName()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>480</x>
+     <y>490</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>497</x>
+     <y>427</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <signal>chosenDice(QString)</signal>
+  <signal>showPlayerName(QString)</signal>
+  <signal>showRoundCounter(QString)</signal>
+  <signal>showRollCounter(QString)</signal>
+  <signal>showPossibilities(QString)</signal>
   <slot>checkChosenDice()</slot>
+  <slot>wuerfeln()</slot>
+  <slot>register(Einser)</slot>
+  <slot>registerEinser()</slot>
+  <slot>registerZweier()</slot>
+  <slot>registerDreier()</slot>
+  <slot>registerVierer()</slot>
+  <slot>registerFuenfer()</slot>
+  <slot>registerSechser()</slot>
+  <slot>registerDreierpasch()</slot>
+  <slot>registerViererpasch()</slot>
+  <slot>registerFullHouse()</slot>
+  <slot>registerKleineStrasse()</slot>
+  <slot>registerGrosseStrasse()</slot>
+  <slot>registerKniffel()</slot>
+  <slot>registerChance()</slot>
+  <slot>startGame()</slot>
+  <slot>acceptPlayerName()</slot>
  </slots>
 </ui>
