@@ -55,45 +55,90 @@ class MyDialog(WindowBaseClass, Ui_MainWindow):
         else:
             self.widget.wuerfeln(chosen)
     
+    def checkCheckBox1(self):
+        self.widget.checkBox1 = self.checkBoxWuerfel1.isChecked()
+        self.widget.update()
+
+    def checkCheckBox2(self):
+        self.widget.checkBox2 = self.checkBoxWuerfel2.isChecked()
+        self.widget.update()
+
+    def checkCheckBox3(self):
+        self.widget.checkBox3 = self.checkBoxWuerfel3.isChecked()
+        self.widget.update()
+
+    def checkCheckBox4(self):
+        self.widget.checkBox4 = self.checkBoxWuerfel4.isChecked()
+        self.widget.update()
+
+    def checkCheckBox5(self):
+        self.widget.checkBox5 = self.checkBoxWuerfel5.isChecked()
+        self.widget.update()
+
     def registerEinser(self):
         self.widget.register("Einser")
+        self.reset()
 
     def registerZweier(self):
         self.widget.register("Zweier")
+        self.reset()
 
     def registerDreier(self):
         self.widget.register("Dreier")
+        self.reset()
 
     def registerVierer(self):
         self.widget.register("Vierer")
+        self.reset()
 
     def registerFuenfer(self):
         self.widget.register("Fünfer")
+        self.reset()
 
     def registerSechser(self):
         self.widget.register("Sechser")
+        self.reset()
 
     def registerDreierpasch(self):
         self.widget.register("Dreierpasch")
+        self.reset()
 
     def registerViererpasch(self):
         self.widget.register("Viererpasch")
+        self.reset()
 
     def registerFullHouse(self):
         self.widget.register("FullHouse")
+        self.reset()
 
     def registerKleineStrasse(self):
         self.widget.register("KleineStrasse")
+        self.reset()
 
     def registerGrosseStrasse(self):
         self.widget.register("GrosseStrasse")
+        self.reset()
 
     def registerKniffel(self):
         self.widget.register("Kniffel")
-    
+        self.reset()
+
     def registerChance(self):
         self.widget.register("Chance")
-
+        self.reset()
+        
+    def reset(self):
+        self.checkBoxWuerfel1.setChecked(False)
+        self.widget.checkBox1 = False
+        self.checkBoxWuerfel2.setChecked(False)
+        self.widget.checkBox2 = False
+        self.checkBoxWuerfel3.setChecked(False)
+        self.widget.checkBox3 = False
+        self.checkBoxWuerfel4.setChecked(False)
+        self.widget.checkBox4 = False
+        self.checkBoxWuerfel5.setChecked(False)
+        self.widget.checkBox5 = False
+        self.widget.update()
 
 if __name__ == "__main__":
     application = QtWidgets.QApplication(sys.argv)
