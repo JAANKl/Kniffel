@@ -12,16 +12,18 @@ class MyDialog(WindowBaseClass, Ui_MainWindow):
 
     def checkChosenDice(self):
         chosen = []
-        if self.checkBoxWuerfel1.isChecked():
+        if not self.checkBoxWuerfel1.isChecked():
+            chosen.append(0)
+        if not self.checkBoxWuerfel2.isChecked():
             chosen.append(1)
-        if self.checkBoxWuerfel2.isChecked():
+        if not self.checkBoxWuerfel3.isChecked():
             chosen.append(2)
-        if self.checkBoxWuerfel3.isChecked():
+        if not self.checkBoxWuerfel4.isChecked():
             chosen.append(3)
-        if self.checkBoxWuerfel4.isChecked():
+        if not self.checkBoxWuerfel5.isChecked():
             chosen.append(4)
-        if self.checkBoxWuerfel5.isChecked():
-            chosen.append(5)
+        #self.widget._logic.rollDice(chosen, self.widget._logic.playerRollCounter)
+        #self.widget._logic.playerRollCounter += 1
         print(chosen)
         chosen = ",".join([str(zahl) for zahl in chosen])
         self.chosenDice.emit(chosen)
