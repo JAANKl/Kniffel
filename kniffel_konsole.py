@@ -13,7 +13,7 @@ class Game:
 		self.players = self.numberOfPlayers * [None]    #Liste aller Spieler
 		self.playingPlayer = None		#Name des gerade spielenden Spielers
 		self.playerRollCounter = 0		#Gibt an, in welchem seiner 3 möglichen Würfe sich ein Spieler befindet
-	
+
 	def play(self):
 		for i in range(self.numberOfPlayers):
 			name = input(f"Name Spieler {i}: ")
@@ -72,9 +72,10 @@ class Game:
 				
 				#Bonusabfrage
 				if self.players[i].registered.checkBonus() and not self.players[i].bonusAchieved:
-					self.players[i].bonusAchieve = True
+					self.players[i].bonusAchieved = True
 					print("Sie haben den Bonus erreicht")
 					self.players[i].registered.table["Bonus"] = 35
+					self.players[i].sumOfAllPoints += 35
 				
 				self.playerRollCounter = 0	
 			for player in self.players:
