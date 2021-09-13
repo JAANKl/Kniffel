@@ -20,6 +20,14 @@ class WuerfelWidget(QWidget):
 
     def __init__(self, parent=None):
         super().__init__(parent=parent)
+
+        self.checkBox1 = False
+        self.checkBox2 = False
+        self.checkBox3 = False
+        self.checkBox4 = False
+        self.checkBox5 = False
+        self.chosen = []
+
         self.dice_size = 50
         self.dice_spacing = 8
 
@@ -33,12 +41,28 @@ class WuerfelWidget(QWidget):
         dice5 = QPixmap(os.path.join("dice", "dice5.png"))
         dice6 = QPixmap(os.path.join("dice", "dice6.png"))
 
+        dice1_highlighted = QPixmap(os.path.join("dice_highlighted", "dice1_highlighted.png"))
+        dice2_highlighted = QPixmap(os.path.join("dice_highlighted", "dice2_highlighted.png"))
+        dice3_highlighted = QPixmap(os.path.join("dice_highlighted", "dice3_highlighted.png"))
+        dice4_highlighted = QPixmap(os.path.join("dice_highlighted", "dice4_highlighted.png"))
+        dice5_highlighted = QPixmap(os.path.join("dice_highlighted", "dice5_highlighted.png"))
+        dice6_highlighted = QPixmap(os.path.join("dice_highlighted", "dice6_highlighted.png"))
+
+
+
         self._diceImageMap = {1: dice1.scaledToWidth(self.dice_size, Qt.SmoothTransformation),
                               2: dice2.scaledToWidth(self.dice_size, Qt.SmoothTransformation),
                               3: dice3.scaledToWidth(self.dice_size, Qt.SmoothTransformation),
                               4: dice4.scaledToWidth(self.dice_size, Qt.SmoothTransformation),
                               5: dice5.scaledToWidth(self.dice_size, Qt.SmoothTransformation),
                               6: dice6.scaledToWidth(self.dice_size, Qt.SmoothTransformation)}
+        
+        self._diceImageMap_highlighted = {1: dice1_highlighted.scaledToWidth(self.dice_size, Qt.SmoothTransformation),
+                                          2: dice2_highlighted.scaledToWidth(self.dice_size, Qt.SmoothTransformation),
+                                          3: dice3_highlighted.scaledToWidth(self.dice_size, Qt.SmoothTransformation),
+                                          4: dice4_highlighted.scaledToWidth(self.dice_size, Qt.SmoothTransformation),
+                                          5: dice5_highlighted.scaledToWidth(self.dice_size, Qt.SmoothTransformation),
+                                          6: dice6_highlighted.scaledToWidth(self.dice_size, Qt.SmoothTransformation)}
 
         self._logic = Game()
 
@@ -112,6 +136,12 @@ class WuerfelWidget(QWidget):
 
         x = self.dice_spacing
         y = self.dice_spacing
+
+        self.chosen = [self.checkBox1, self.checkBox2, self.checkBox3, self.checkBox4, self.checkBox5]
+
         for i in range(5):
-            painter.drawPixmap(x, y, self._diceImageMap[self._logic.dice.roll[i]])
+            if self.chosen[i]:
+                painter.drawPixmap(x, y, self._diceImageMap_highlighted[self._logic.dice.roll[i]])
+            else:
+                painter.drawPixmap(x, y, self._diceImageMap[self._logic.dice.roll[i]])
             x += self.dice_size + self.dice_spacing
