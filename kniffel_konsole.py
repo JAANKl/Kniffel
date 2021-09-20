@@ -6,6 +6,10 @@ class Player:
 		self.registered = Table()
 		self.bonusAchieved = False
 		self.sumOfAllPoints = 0
+	
+	def register(self, chosen, points):
+		self.registered.table[chosen] = points
+		self.sumOfAllPoints += points
 
 class Game:
 	def __init__(self, numberOfPlayers):
@@ -21,8 +25,8 @@ class Game:
 			
 		for roundCounter in range(13):
 			for i in range(self.numberOfPlayers):			
-				self.playingPlayer = self.players[i].name #Der Spieler, der gerade an der Reihe ist, wird ausgegeben
-				print(self.playingPlayer)
+				self.playingPlayer = self.players[i] #Der Spieler, der gerade an der Reihe ist, wird ausgegeben
+				print(self.playingPlayer.name)
 			
 				rolled = Dice()
 				self.playerRollCounter += 1
@@ -58,24 +62,23 @@ class Game:
 				possibilities.table["Chance"] = rolled.checkChance()[1]
 				
 				#Hier werden alle Möglichkeiten ausgegeben, die der Spieler hat, etwas einzutragen.
-				for figur in self.players[i].registered.table:
-					if self.players[i].registered.table[figur] is None:
+				for figur in self.playingPlayer.registered.table:
+					if self.playingPlayer.registered.table[figur] is None:
 						print(figur, possibilities.table[figur])
 				
 
 				#Abfrage an den Spieler, was er eintragen will.
 				chosen = input("Was wollen Sie eintragen? ")
-				while chosen not in self.players[i].registered.table:
+				while chosen not in self.playingPlayer.registered.table:
 					chosen = input("Falsche Eingabe. Was wollen Sie eintragen? ")
-				self.players[i].registered.table[chosen] = possibilities.table[chosen]
-				self.players[i].sumOfAllPoints += possibilities.table[chosen]
+				self.playingPlayer.register(chosen, possibilities.table[chosen])
 				
 				#Bonusabfrage
-				if self.players[i].registered.checkBonus() and not self.players[i].bonusAchieved:
-					self.players[i].bonusAchieved = True
+				if self.playingPlayer.registered.checkBonus() and not self.playingPlayer.bonusAchieved:
+					self.playingPlayer.bonusAchieved = True
 					print("Sie haben den Bonus erreicht")
-					self.players[i].registered.table["Bonus"] = 35
-					self.players[i].sumOfAllPoints += 35
+					self.playingPlayer.registered.table["Bonus"] = 35
+					self.playingPlayer.sumOfAllPoints += 35
 				
 				self.playerRollCounter = 0	
 			for player in self.players:
