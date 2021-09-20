@@ -107,9 +107,13 @@ class Dice:
 					roll[i+1] = x
 		return roll
 	
-	def __init__(self):
+	def __init__(self, testDice=None):
 		#self.roll = self.bubblesort([random.randint(1,6), random.randint(1,6), random.randint(1,6), random.randint(1,6), random.randint(1,6)])
-		self.roll = [random.randint(1,6), random.randint(1,6), random.randint(1,6), random.randint(1,6), random.randint(1,6)]
+		#self.roll = [random.randint(1,6), random.randint(1,6), random.randint(1,6), random.randint(1,6), random.randint(1,6)]
+		if testDice is not None:
+			self.roll = testDice
+		else:
+			self.roll = [random.randint(1,6), random.randint(1,6), random.randint(1,6), random.randint(1,6), random.randint(1,6)]
 		self.numberOf = {1:self.roll.count(1), 2:self.roll.count(2), 3:self.roll.count(3), 4:self.roll.count(4), 5:self.roll.count(5), 6:self.roll.count(6)}
 				#Anzahl 1er, 2er, 3er, 4er, 5er, 6er des Wurfes
 		self.sum = sum(self.roll)
