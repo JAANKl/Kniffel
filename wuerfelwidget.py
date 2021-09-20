@@ -85,6 +85,9 @@ class WuerfelWidget(QWidget):
 
         except TooManyRolls as tmr:
             self.showStatus.emit(str(tmr))
+        except AttributeError:
+            self.showStatus.emit("Bitte Namen eingeben")
+            #Hier müsste startedGame eigentlich wieder auf False gesetzt werden, aber man hat keinen Zugriff drauf :(
 
     def register(self, figur):
         try:
