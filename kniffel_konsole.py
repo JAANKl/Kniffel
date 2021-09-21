@@ -15,7 +15,7 @@ class Game:
 	def __init__(self, numberOfPlayers):
 		self.numberOfPlayers = numberOfPlayers			#Anzahl aller Spieler
 		self.players = self.numberOfPlayers * [None]    #Liste aller Spieler
-		self.playingPlayer = None		#Name des gerade spielenden Spielers
+		self.playingPlayer = None		#Der gerade spielende Spieler
 		self.playerRollCounter = 0		#Gibt an, in welchem seiner 3 möglichen Würfe sich ein Spieler befindet
 
 	def play(self):
