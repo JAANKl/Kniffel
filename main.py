@@ -5,39 +5,47 @@ from kniffel_gui import Player
 
 Ui_MainWindow, WindowBaseClass = uic.loadUiType("main_window.ui")
 class MyDialog(WindowBaseClass, Ui_MainWindow):
-
     def __init__(self, parent=None):
         WindowBaseClass.__init__(self, parent)
         Ui_MainWindow.__init__(self)
         self.setupUi(self)
 
-        self.startedGame = False
+        self.startedGame = False    #Attribut, das angibt, ob das Spiel schon gestartet ist oder noch Namen eingetragen werden
 
     def acceptPlayerName(self):
-        if not self.startedGame:
+    #Hier werden die Spieler erstellt
+        if not self.startedGame:    #neue Spieler können nur hinzugefügt werden, wenn das Spiel noch nicht gestartet ist
+            #erstelle einen Spieler mit dem Namen, der im Textfeld eingegeben wurde und füge ihn der Liste aller Spieler hinzu
             name = self.textEdit_PlayerName.toPlainText()
             self.widget._logic.players.append(Player(name))
             self.widget._logic.numberOfPlayers = len(self.widget._logic.players)
             
             player1 = self.widget._logic.players[0]
-            self.widget._logic.playingPlayer = player1
+            self.widget._logic.playingPlayer = player1  #setze den ersten Spieler als playingPlayer
+
+            #zeige die erzielten Punkte des aktuellen Spielers
             textRegistered = "erzielte Punkte:\n"
             for figur in player1.registered.table:
                 textRegistered += figur + ": " + str(player1.registered.table[figur]) + "\n"
 
+            #zeige den Gesamtscore aller Spieler
             textScore = "Gesamtscore:\n"
             for player in self.widget._logic.players:
                 textScore += player.name + ": " + str(player.sumOfAllPoints) + "\n"
             
+            #aktualisiere die Textfelder
             self.widget.showPlayerName.emit(player1.name)
             self.widget.showRoundCounter.emit("1")
             self.widget.showRegistered.emit(textRegistered)
             self.widget.showScore.emit(textScore)
     
     def startGame(self):
+    #das Spiel startet, wenn gewürfelt wird
         self.startedGame = True
 
     def wuerfeln(self):
+    #wird ausgeführt, wenn man auf "Würfeln" klickt
+        #erstelle eine Liste von Indizes der Würfel, die nochmal geworfen werden sollen
         chosen = []
         if not self.checkBoxWuerfel1.isChecked():
             chosen.append(0)
@@ -50,11 +58,12 @@ class MyDialog(WindowBaseClass, Ui_MainWindow):
         if not self.checkBoxWuerfel5.isChecked():
             chosen.append(4)
 
-        if self.widget._logic.playerRollCounter == 0:
+        if self.widget._logic.playerRollCounter == 0:   #wenn man das erste Mal würfelt, kann man noch keine Würfel behalten
             self.widget.wuerfeln([0, 1, 2, 3, 4])
         else:
             self.widget.wuerfeln(chosen)
     
+    #folgende Methoden übergeben den Zustand der checkBoxes an das Widget und lassen es neu zeichnen, sobald eine checkBox angeklickt wird
     def checkCheckBox1(self):
         self.widget.checkBox1 = self.checkBoxWuerfel1.isChecked()
         self.widget.update()
@@ -75,6 +84,7 @@ class MyDialog(WindowBaseClass, Ui_MainWindow):
         self.widget.checkBox5 = self.checkBoxWuerfel5.isChecked()
         self.widget.update()
 
+    #folgende Funktionen übergeben an das Widget, was der aktuelle Spieler eintragen will, sobald der Spieler den entsprechenden Button klickt und bereiten alles für den nächsten Spieler vor
     def registerEinser(self):
         self.widget.register("Einser")
         self.reset()
@@ -128,6 +138,7 @@ class MyDialog(WindowBaseClass, Ui_MainWindow):
         self.reset()
         
     def reset(self):
+    #Hier werden die checkBoxes auf "Nicht ausgewählt" gesetzt
         self.checkBoxWuerfel1.setChecked(False)
         self.widget.checkBox1 = False
         self.checkBoxWuerfel2.setChecked(False)
