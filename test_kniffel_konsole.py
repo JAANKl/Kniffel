@@ -41,6 +41,30 @@ class TestKniffel(unittest.TestCase):
         self.assertFalse(testDice.checkViererpasch()[0])
         self.assertEqual(testDice.checkViererpasch()[1], 0)
 
+    def test_checkZweierpasch(self):
+    #Tests für Zweierpasch
+        testDice = _logic.Dice([6, 6, 6, 5, 5])
+        self.assertTrue(testDice.checkZweierpasch()[0])
+        self.assertEqual(testDice.checkZweierpasch()[1], 12)
+
+        testDice = _logic.Dice([1, 2, 3, 4, 5])
+        self.assertFalse(testDice.checkZweierpasch()[0])
+        self.assertEqual(testDice.checkZweierpasch()[1], 0)
+
+    def test_checkDoppelterZweierpasch(self):
+    #Tests für doppelten Zweierpasch
+        testDice = _logic.Dice([6, 6, 6, 5, 5])
+        self.assertTrue(testDice.checkDoppelterZweierpasch()[0])
+        self.assertEqual(testDice.checkDoppelterZweierpasch()[1], 22)
+
+        testDice = _logic.Dice([1, 2, 3, 5, 5])
+        self.assertFalse(testDice.checkDoppelterZweierpasch()[0])
+        self.assertEqual(testDice.checkDoppelterZweierpasch()[1], 0)
+
+        testDice = _logic.Dice([1, 1, 1, 1, 1])
+        self.assertTrue(testDice.checkDoppelterZweierpasch()[0])
+        self.assertEqual(testDice.checkDoppelterZweierpasch()[1], 4)
+
     def test_checkFullHouse(self):
     #Tests für Full House
         testDice = _logic.Dice([6, 6, 6, 5, 5])

@@ -23,7 +23,7 @@ class Game:
 			name = input(f"Name Spieler {i}: ")   #Namensabfrage der Spieler
 			self.players[i] = Player(name)		  #Spieler wird erstellt
 			
-		for roundCounter in range(13):	#es werden insgesamt 13 Runden gespielt
+		for roundCounter in range(15):	#es werden insgesamt 15 Runden gespielt
 			for i in range(self.numberOfPlayers):	#pro Runde ist jeder Spieler einmal dran			
 				self.playingPlayer = self.players[i] #Der Spieler, der gerade an der Reihe ist, wird ausgegeben
 				print(self.playingPlayer.name)
@@ -55,6 +55,8 @@ class Game:
 			
 				possibilities.table["Dreierpasch"] = rolled.checkDreierpasch()[1]
 				possibilities.table["Viererpasch"] = rolled.checkViererpasch()[1]
+				possibilities.table["Zweierpasch"] = rolled.checkZweierpasch()[1]
+				possibilities.table["DoppelterZweierpasch"] = rolled.checkDoppelterZweierpasch()[1]
 				possibilities.table["FullHouse"] = rolled.checkFullHouse()[1]
 				possibilities.table["KleineStrasse"] = rolled.checkKleineStrasse()[1]
 				possibilities.table["GrosseStrasse"] = rolled.checkGrosseStrasse()[1]
@@ -91,7 +93,7 @@ class Table:
 	def __init__(self):
 		#Tabelle der Punktzahlen wird durch ein Dictionary repräsentiert
 		self.table = {"Einser": None, "Zweier": None, "Dreier": None, "Vierer": None, "Fünfer": None, "Sechser": None, "Bonus": 0,
-			      "Dreierpasch": None, "Viererpasch": None, "FullHouse": None, "KleineStrasse": None, "GrosseStrasse": None, "Kniffel": None, "Chance": None}
+			      "Dreierpasch": None, "Viererpasch": None, "Zweierpasch": None, "DoppelterZweierpasch": None, "FullHouse": None, "KleineStrasse": None, "GrosseStrasse": None, "Kniffel": None, "Chance": None}
 
 	def checkBonus(self):  #überprüft, ob der Bonus schon erreicht wurde
 		sum = 0
@@ -120,6 +122,29 @@ class Dice:
 	#Überprüft, ob ein Viererpasch oder Kniffel vorhanden ist.
 		if 4 in self.numberOf.values() or 5 in self.numberOf.values():
 			return True, self.sum
+		else:
+			return False, 0
+
+	def checkZweierpasch(self):
+	#Überprüft, ob ein Zweierpasch vorliegt
+		for i in range(6, 0, -1):
+			if self.numberOf[i] >= 2:
+				return True, 2*i	#gibt die Summe des größten Zweierpasches zurück
+		return False, 0
+
+	def checkDoppelterZweierpasch(self):
+	#Überprüft, ob ein doppelter Zweierpasch vorliegt
+		counter = 0		#Zählt die Zweierpaschs
+		result = 0		#Zählt die Punkte
+		for i in range(1, 7):
+			if self.numberOf[i] == 2 or self.numberOf[i] == 3:		#Zweier- und Dreierpaschs werden als ein Zweierpasch gezählt
+				counter += 1
+				result += 2*i
+			elif self.numberOf[i] >= 4:								#Viererpaschs und Kniffel werden als zwei Zweierpaschs gezählt
+				counter += 2
+				result += 4*i
+		if counter >= 2:
+			return True, result
 		else:
 			return False, 0
 	
