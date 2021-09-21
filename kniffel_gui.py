@@ -2,31 +2,31 @@ import random
 
 class Player:
 	def __init__(self, name):
-		self.name = name
-		self.registered = Table()
-		self.bonusAchieved = False
-		self.sumOfAllPoints = 0
+		self.name = name			#Name des Spielers
+		self.registered = Table()	#Tabelle der Punkte des Spielers
+		self.bonusAchieved = False  #zeigt an, ob der Spieler den Bonus schon erreicht hat
+		self.sumOfAllPoints = 0	 	#Summer aller Punkte des Spielers
 
 
 class Table:
 	def __init__(self):
+		#Tabelle der Punktzahlen wird durch ein Dictionary repräsentiert
 		self.table = {"Einser": None, "Zweier": None, "Dreier": None, "Vierer": None, "Fünfer": None, "Sechser": None, "Bonus": 0,
 			      "Dreierpasch": None, "Viererpasch": None, "FullHouse": None, "KleineStrasse": None, "GrosseStrasse": None, "Kniffel": None, "Chance": None}
 
-	def checkBonus(self):
+	def checkBonus(self):	#überprüft, ob der Bonus schon erreicht wurde
 		sum = 0
-		for key in ["Einser", "Zweier", "Dreier", "Vierer", "Fünfer", "Sechser"]:
+		for key in ["Einser", "Zweier", "Dreier", "Vierer", "Fünfer", "Sechser"]:	#obere Punkte werden zusammengerechnet
 			sum += (int(0 if self.table[key] is None else self.table[key]))
 		return (sum >= 63)
 
 
 class Dice:
-	
 	def __init__(self):
-		self.roll = [random.randint(1,6), random.randint(1,6), random.randint(1,6), random.randint(1,6), random.randint(1,6)]
+		self.roll = [random.randint(1,6), random.randint(1,6), random.randint(1,6), random.randint(1,6), random.randint(1,6)]	#zufällige Zahlen für die 5 Würfel
 		self.numberOf = {1:self.roll.count(1), 2:self.roll.count(2), 3:self.roll.count(3), 4:self.roll.count(4), 5:self.roll.count(5), 6:self.roll.count(6)}
-				#Anzahl 1er, 2er, 3er, 4er, 5er, 6er des Wurfes
-		self.sum = sum(self.roll)
+									#Anzahl 1er, 2er, 3er, 4er, 5er, 6er des Wurfes
+		self.sum = sum(self.roll)   #Gesamtsumme aller 5 Würfel
 	
 	def checkDreierpasch(self):
 	#Überprüft, ob ein Dreier-, Viererpasch oder Kniffel vorhanden ist.
@@ -58,24 +58,27 @@ class Dice:
 	
 	def checkGrosseStrasse(self):
 		for i in range(1,7):
-			if self.numberOf[i] >= 2:      #für eine große Straße benötigt man 5 verschiedene Zahlen, d.h. es darf keine Zahl mehrmals vorkommen
+			if self.numberOf[i] >= 2:      		  #für eine große Straße benötigt man 5 verschiedene Zahlen, d.h. es darf keine Zahl mehrmals vorkommen
 				return False, 0
 		
 		if self.numberOf[1] == self.numberOf[6]:  #gibt es sowohl eine 1 als auch eine 6, so kann ebenfalls keine große Straße vorliegen
-			return False, 0
-		else:
+			return False, 0						  
+		else:									  #nur in allen anderen Fällen liegt eine große Straße vor
 			return True, 40
 	
 	def checkKniffel(self):
+	#Überprüft, ob ein Kniffel vorliegt
 		if 5 in self.numberOf.values():
 			return True, 50
 		else:
 			return False, 0
 		
 	def checkChance(self):
+	#gibt die Summe aller Würfel zurück
 		return True, self.sum
 		
 	def newRoll(self, chosenIndices):
+	#Hier wird nochmal gewürfelt
 	#In chosenIndices stehen die Würfel in einer Liste, die der Nutzer nochmal neu werfen will	
 		for i in chosenIndices:
 			self.roll[i] = random.randint(1,6)	
@@ -86,21 +89,22 @@ class Dice:
 
 class Game:
     def __init__(self):
-        self.players = []    #Liste aller Spieler
-        self.numberOfPlayers = 0
+        self.players = []    		#Liste aller Spieler
+        self.numberOfPlayers = 0	#Anzahl aller Spieler
         self.playingPlayer = None   #Der gerade spielende Spieler
         self.playerRollCounter = 0  #Gibt an, in welchem seiner 3 möglichen Würfe sich ein Spieler befindet
-        self.dice = Dice()
-        #self.player = Player("Spieler")
+        self.dice = Dice()			#Die Würfel für das Spiel werden erzeugt
         self.roundCounter = 1       #Gibt an, in welcher Runde man sich befindet
 
     def rollDice(self, chosenIndices, numberOfRolls):
-        if numberOfRolls < 3:
+	#Hier wird gewürfelt
+        if numberOfRolls < 3:					#man kann nur nochmal würfeln, wenn man noch nicht 3 mal gewürfelt hat
             self.dice.newRoll(chosenIndices)
         else:
             raise TooManyRolls("Es wurde schon dreimal gewürfelt")
     
     def possibilities(self):
+		#Diese Tabelle gibt dem Spieler an, welche Punktzahlen er sich eintragen lassen kann
         possibilities = Table()
         possibilities.table["Einser"] = self.dice.numberOf[1] * 1
         possibilities.table["Zweier"] = self.dice.numberOf[2] * 2
@@ -120,7 +124,8 @@ class Game:
         return possibilities
     
     def register(self, figur):
-        if self.playingPlayer.registered.table[figur] is None:
+		#Hier wird eingetragen, was der Spieler will, ...
+        if self.playingPlayer.registered.table[figur] is None:	#...aber nur, wenn es nicht schon eingetragen wurde
             self.playingPlayer.registered.table[figur] = self.possibilities().table[figur]
         else:
             raise AlreadyRegistered("Ist bereits eingetragen")
