@@ -135,7 +135,16 @@ class WuerfelWidget(QWidget):
             self.showRegistered.emit(textRegistered)
             self.showPossibilities.emit("Möglichkeiten:\n")
             self.showScore.emit(textScore)
-            
+
+            #wenn alle Runden gespielt wurden, sollen die meisten Textfelder nichts mehr anzeigen und gezeigt werden, dass das Spiel beendet ist
+            if self._logic.roundCounter == 14:
+                self.showPlayerName.emit("")
+                self.showRoundCounter.emit("")
+                self.showRollCounter.emit("")
+                self.showRegistered.emit("")
+                self.showPossibilities.emit("")
+                self.showStatus.emit("Spiel beendet!")
+  
         except AlreadyRegistered as ar:
             self.showStatus.emit(str(ar))
 
