@@ -1,3 +1,5 @@
+#Authors: James King, Sven Krueger
+#22.09.21
 import unittest
 import kniffel_konsole as _logic
 
