@@ -1,3 +1,5 @@
+#Authors: James King, Sven Krueger
+#22.09.21
 import sys
 from PyQt5 import uic, QtWidgets, QtCore
 
