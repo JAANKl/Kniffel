@@ -1,5 +1,6 @@
 #Authors: James King, Sven Krueger
 #22.09.21
+
 import os
 
 from PyQt5.QtGui import QPainter, QPixmap
@@ -7,7 +8,7 @@ from PyQt5.QtWidgets import QWidget
 from PyQt5.Qt import Qt
 from PyQt5 import QtCore
 
-from kniffel_gui import AlreadyRegistered, Game, TooManyRolls
+from kniffel_gui import Game, AlreadyRegistered, TooManyRolls, TooFewRolls
 
 class WuerfelWidget(QWidget):
     #verschiedene Signale für verschiedene Anzeigen
@@ -146,8 +147,8 @@ class WuerfelWidget(QWidget):
                 self.showPossibilities.emit("")
                 self.showStatus.emit("Spiel beendet!")
   
-        except AlreadyRegistered as ar:
-            self.showStatus.emit(str(ar))
+        except (AlreadyRegistered, TooFewRolls) as err:
+            self.showStatus.emit(str(err))
 
     def paintEvent(self, event):
     #Hier wird das Widget gezeichnet
@@ -170,3 +171,5 @@ class WuerfelWidget(QWidget):
             else:
                 painter.drawPixmap(x, y, self._diceImageMap[self._logic.dice.roll[i]])
             x += self.dice_size + self.dice_spacing
+
+

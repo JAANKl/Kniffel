@@ -1,5 +1,6 @@
 #Authors: James King, Sven Krueger
 #22.09.21
+
 import random
 
 class Player:
@@ -127,7 +128,9 @@ class Game:
     
     def register(self, figur):
 		#Hier wird eingetragen, was der Spieler will, ...
-        if self.playingPlayer.registered.table[figur] is None:	#...aber nur, wenn es nicht schon eingetragen wurde
+        if self.playerRollCounter == 0:
+            raise TooFewRolls("Sie haben noch nicht gewürfelt") #...außer er hat noch nicht gewürfelt...
+        if self.playingPlayer.registered.table[figur] is None:	#...und nur, wenn es nicht schon eingetragen wurde
             self.playingPlayer.registered.table[figur] = self.possibilities().table[figur]
         else:
             raise AlreadyRegistered("Ist bereits eingetragen")
@@ -137,3 +140,10 @@ class AlreadyRegistered(Exception):
 
 class TooManyRolls(Exception):
 	pass #Exception, falls schon zu oft gewürfelt wurde
+
+class TooFewRolls(Exception):
+	pass #Exception, falls noch nicht gewürfelt wurde und man etwas eintragen will
+
+        
+
+
