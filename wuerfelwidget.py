@@ -93,7 +93,6 @@ class WuerfelWidget(QWidget):
 
         except AttributeError:
             self.showStatus.emit("Bitte Namen eingeben")
-            #Hier müsste startedGame eigentlich wieder auf False gesetzt werden, aber man hat keinen Zugriff drauf :(
 
     def register(self, figur):
     #Hier wird die gewünschte Kategorie eingetragen
