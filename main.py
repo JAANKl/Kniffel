@@ -14,7 +14,7 @@ class MyDialog(WindowBaseClass, Ui_MainWindow):
 
     def acceptPlayerName(self):
     #Hier werden die Spieler erstellt
-        if not self.startedGame:    #neue Spieler können nur hinzugefügt werden, wenn das Spiel noch nicht gestartet ist
+        if not self.startedGame or self.widget._logic.numberOfPlayers == 0:    #neue Spieler können nur hinzugefügt werden, wenn das Spiel noch nicht gestartet ist
             #erstelle einen Spieler mit dem Namen, der im Textfeld eingegeben wurde und füge ihn der Liste aller Spieler hinzu
             name = self.textEdit_PlayerName.toPlainText()
             self.widget._logic.players.append(Player(name))
@@ -22,6 +22,7 @@ class MyDialog(WindowBaseClass, Ui_MainWindow):
             
             player1 = self.widget._logic.players[0]
             self.widget._logic.playingPlayer = player1  #setze den ersten Spieler als playingPlayer
+            self.widget._logic.playerRollCounter = 0
 
             #zeige die erzielten Punkte des aktuellen Spielers
             textRegistered = "erzielte Punkte:\n"
@@ -38,6 +39,7 @@ class MyDialog(WindowBaseClass, Ui_MainWindow):
             self.widget.showRoundCounter.emit("1")
             self.widget.showRegistered.emit(textRegistered)
             self.widget.showScore.emit(textScore)
+            self.widget.showRollCounter.emit("0")
     
     def startGame(self):
     #das Spiel startet, wenn gewürfelt wird
